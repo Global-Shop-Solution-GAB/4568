@@ -1,0 +1,2778 @@
+﻿Program.Sub.ScreenSU.Start
+
+
+Gui.mainForm..Create
+Gui.mainForm..Caption("Copy Company Data")
+Gui.mainForm..Size(4920,2100)
+Gui.mainForm..MinX(0)
+Gui.mainForm..MinY(0)
+Gui.mainForm..Position(0,0)
+Gui.mainForm..BackColor(-2147483633)
+Gui.mainForm..MousePointer(0)
+Gui.mainForm..Event(UnLoad,Form_UnLoad)
+Gui.mainForm.extBtn.Create(Button)
+Gui.mainForm.extBtn.Size(1200,375)
+Gui.mainForm.extBtn.Position(795,765)
+Gui.mainForm.extBtn.Caption("Extract Data")
+Gui.mainForm.extBtn.Event(Click,extBtn_Click)
+Gui.mainForm.uplBtn.Create(Button)
+Gui.mainForm.uplBtn.Size(1200,375)
+Gui.mainForm.uplBtn.Position(2640,765)
+Gui.mainForm.uplBtn.Caption("Upload Data")
+Gui.mainForm.uplBtn.Event(Click,uplBtn_Click)
+Gui.mainForm.lbl1.Create(Label,"Select mode",True,1125,255,0,1845,285,True,0,"Arial",8,-2147483633,0)
+Gui.extForm..Create
+Gui.extForm..Size(6300,4920)
+Gui.extForm..MinX(0)
+Gui.extForm..MinY(0)
+Gui.extForm..Position(0,0)
+Gui.extForm..BackColor(-2147483633)
+Gui.extForm..MousePointer(0)
+Gui.extForm..Event(UnLoad,Form_UnLoad)
+Gui.extForm..Caption("Extract Options")
+Gui.extForm.cccDdl.Create(DropDownList)
+Gui.extForm.cccDdl.Size(2730,330)
+Gui.extForm.cccDdl.Position(150,420)
+Gui.extForm.lbl1.Create(Label,"Company to Extract Data From:",True,2520,255,0,150,180,True,0,"Arial",8,-2147483633,0)
+Gui.extForm.cmd1.Create(Button)
+Gui.extForm.cmd1.Size(855,375)
+Gui.extForm.cmd1.Position(735,3495)
+Gui.extForm.cmd1.Caption("OK")
+Gui.extForm.cmd1.Event(Click,ext_OK_Click)
+Gui.extForm.cmd2.Create(Button)
+Gui.extForm.cmd2.Size(855,375)
+Gui.extForm.cmd2.Position(3495,3495)
+Gui.extForm.cmd2.Caption("Cancel")
+Gui.extForm.cmd2.Event(Click,Form_UnLoad)
+Gui.extForm.GsGC1.Create(GsGridControl)
+Gui.extForm.GsGC1.Visible(False)
+Gui.extForm.GsGC1.Size(1110,270)
+Gui.extForm.GsGC1.Position(5325,3285)
+Gui.extForm.chkBI.Create(CheckBox)
+Gui.extForm.chkBI.Size(2010,360)
+Gui.extForm.chkBI.Position(375,2250)
+Gui.extForm.chkBI.Caption("BI Reports and Labels")
+Gui.extForm.chkBI.Event(Click,chkBI_Click)
+Gui.extForm.chkBI.ToolTip("All files from BUSINT\CUSTOM and BUSINT\LABELS")
+Gui.extForm.chkActvRpt.Create(CheckBox)
+Gui.extForm.chkActvRpt.Size(1560,360)
+Gui.extForm.chkActvRpt.Position(375,2805)
+Gui.extForm.chkActvRpt.Caption("Active Reports")
+Gui.extForm.chkActvRpt.Event(Click,chkActvRpt_Click)
+Gui.extForm.chkActvRpt.ToolTip("Configuration data, not report files")
+Gui.extForm.chkAll.Create(CheckBox)
+Gui.extForm.chkAll.Size(2025,360)
+Gui.extForm.chkAll.Position(3120,390)
+Gui.extForm.chkAll.Caption("All Data and Options")
+Gui.extForm.chkAll.Event(Click,chkAll_Click)
+Gui.extForm.chkMKD.Create(CheckBox)
+Gui.extForm.chkMKD.Size(1560,360)
+Gui.extForm.chkMKD.Position(3435,2250)
+Gui.extForm.chkMKD.Caption("MKD Files")
+Gui.extForm.chkMKD.Event(Click,chkMKD_Click)
+Gui.extForm.chkMKD.ToolTip("Non-menu and non-user files from DDF directory")
+Gui.extForm.chkData.Create(CheckBox)
+Gui.extForm.chkData.Size(1560,360)
+Gui.extForm.chkData.Position(375,1755)
+Gui.extForm.chkData.Caption("Data Files")
+Gui.extForm.chkData.Event(Click,chkData_Click)
+Gui.extForm.chkData.ToolTip("All data files found within FILES directory")
+Gui.extForm.chkGAB.Create(CheckBox)
+Gui.extForm.chkGAB.Size(1560,360)
+Gui.extForm.chkGAB.Position(3435,1755)
+Gui.extForm.chkGAB.Caption("GAB Scripts")
+Gui.extForm.chkGAB.Event(Click,chkGAB_Click)
+Gui.extForm.chkGAB.ToolTip("All GAB scripts from PLUGINS\GAB\GAS")
+Gui.extForm.chkLogo.Create(CheckBox)
+Gui.extForm.chkLogo.Size(1560,360)
+Gui.extForm.chkLogo.Position(3435,2805)
+Gui.extForm.chkLogo.Caption("Logos")
+Gui.extForm.chkLogo.Event(Click,chkLogo_Click)
+Gui.extForm.chkLogo.ToolTip("Company logo and Report logo file")
+Gui.extForm.chkOptions.Create(CheckBox)
+Gui.extForm.chkOptions.Size(2370,360)
+Gui.extForm.chkOptions.Position(3120,765)
+Gui.extForm.chkOptions.Caption("Company Options Only")
+Gui.extForm.chkOptions.Event(Click,chkOptions_Click)
+Gui.extForm.chkOptions.ToolTip("RAOPT, UNOPT, OPHDR")
+Gui.extForm.chkSubOptions.Create(CheckBox)
+Gui.extForm.chkSubOptions.Size(2400,360)
+Gui.extForm.chkSubOptions.Position(3435,1125)
+Gui.extForm.chkSubOptions.Caption("Include All Sub-Options")
+Gui.extForm.chkSubOptions.Event(Click,chkSubOptions_Click)
+Gui.extForm.chkSubOptions.Enabled(False)
+Gui.extForm.chkSubOptions.ToolTip("All options files")
+Gui.uplForm..Create
+Gui.uplForm..Caption("Upload Options")
+Gui.uplForm..Size(6420,4590)
+Gui.uplForm..MinX(0)
+Gui.uplForm..MinY(0)
+Gui.uplForm..Position(0,0)
+Gui.uplForm..BackColor(-2147483633)
+Gui.uplForm..MousePointer(0)
+Gui.uplForm..Event(UnLoad,Form_UnLoad)
+Gui.uplForm.cccDdlUpl.Create(DropDownList)
+Gui.uplForm.cccDdlUpl.Size(3105,330)
+Gui.uplForm.cccDdlUpl.Position(135,495)
+Gui.uplForm.cmdOK.Create(Button)
+Gui.uplForm.cmdOK.Size(855,375)
+Gui.uplForm.cmdOK.Position(1680,3390)
+Gui.uplForm.cmdOK.Caption("OK")
+Gui.uplForm.cmdOK.Event(Click,upl_OK_Click)
+Gui.uplForm.cmdCancel.Create(Button)
+Gui.uplForm.cmdCancel.Size(855,375)
+Gui.uplForm.cmdCancel.Position(3300,3390)
+Gui.uplForm.cmdCancel.Caption("Cancel")
+Gui.uplForm.cmdCancel.Event(Click,Form_UnLoad)
+Gui.uplForm.chkActvRpt.Create(CheckBox)
+Gui.uplForm.chkActvRpt.Size(1560,360)
+Gui.uplForm.chkActvRpt.Position(390,2850)
+Gui.uplForm.chkActvRpt.Caption("Active Reports")
+Gui.uplForm.chkActvRpt.Event(Click,chkActvRpt_Click1)
+Gui.uplForm.chkActvRpt.ToolTip("Configuration data, not report files")
+Gui.uplForm.chkMKD.Create(CheckBox)
+Gui.uplForm.chkMKD.Size(1560,360)
+Gui.uplForm.chkMKD.Position(3750,2070)
+Gui.uplForm.chkMKD.Caption("MKD Files")
+Gui.uplForm.chkMKD.Event(Click,chkMKD_Click1)
+Gui.uplForm.chkMKD.ToolTip("Non-menu and non-user files from DDF directory")
+Gui.uplForm.chkAll.Create(CheckBox)
+Gui.uplForm.chkAll.Size(2040,360)
+Gui.uplForm.chkAll.Position(3555,435)
+Gui.uplForm.chkAll.Caption("All Data and Options")
+Gui.uplForm.chkAll.Event(Click,chkAllUpl_Click)
+Gui.uplForm.chkGAB.Create(CheckBox)
+Gui.uplForm.chkGAB.Size(1560,360)
+Gui.uplForm.chkGAB.Position(3750,1680)
+Gui.uplForm.chkGAB.Caption("Gab Scripts")
+Gui.uplForm.chkGAB.Event(Click,chkGAB_Click1)
+Gui.uplForm.chkGAB.ToolTip("All GAB scripts from PLUGINS\GAB\GAS")
+Gui.uplForm.chkData.Create(CheckBox)
+Gui.uplForm.chkData.Size(1560,360)
+Gui.uplForm.chkData.Position(390,1680)
+Gui.uplForm.chkData.Caption("Data Files")
+Gui.uplForm.chkData.Event(Click,chkData_Click1)
+Gui.uplForm.chkData.ToolTip("All data files found within FILES directory")
+Gui.uplForm.chkBI.Create(CheckBox)
+Gui.uplForm.chkBI.Size(2280,360)
+Gui.uplForm.chkBI.Position(375,2385)
+Gui.uplForm.chkBI.Caption("BI Reports and Labels")
+Gui.uplForm.chkBI.Event(Click,chkBI_Click1)
+Gui.uplForm.chkBI.ToolTip("All files from BUSINT\CUSTOM and BUSINT\LABELS")
+Gui.uplForm.chkLogo.Create(CheckBox)
+Gui.uplForm.chkLogo.Size(1560,360)
+Gui.uplForm.chkLogo.Position(3750,2460)
+Gui.uplForm.chkLogo.Caption("Logos")
+Gui.uplForm.chkLogo.Event(Click,chkLogo_Click1)
+Gui.uplForm.chkLogo.ToolTip("Company logo and Report logo file")
+Gui.uplForm.chkExclOpt.Create(CheckBox)
+Gui.uplForm.chkExclOpt.Size(2310,360)
+Gui.uplForm.chkExclOpt.Position(825,1965)
+Gui.uplForm.chkExclOpt.Caption("Exclude Company Options")
+Gui.uplForm.chkExclOpt.Event(Click,chkExclOpt_Click)
+Gui.uplForm.chkExclOpt.ToolTip("Ignores RAOPT, UNOPT, OPHDR when copying files")
+Gui.uplForm.lbl1.Create(Label,"Company to Upload Data To:",True,2265,255,0,195,195,True,0,"Arial",8,-2147483633,0)
+Gui.uplForm.chkPaths.Create(CheckBox)
+Gui.uplForm.chkPaths.Size(1560,360)
+Gui.uplForm.chkPaths.Position(3750,2865)
+Gui.uplForm.chkPaths.Caption("Update Paths")
+Gui.uplForm.chkPaths.Event(Click,chkPaths_Click)
+Gui.uplForm.chkPaths.ToolTip("No files copied. Only paths updated.")
+Gui.uplForm.chkOptions.Create(CheckBox)
+Gui.uplForm.chkOptions.Size(2220,360)
+Gui.uplForm.chkOptions.Position(3570,825)
+Gui.uplForm.chkOptions.Caption("Company Options Only")
+Gui.uplForm.chkOptions.Event(Click,chkOptions_Click1)
+Gui.uplForm.chkOptions.ToolTip("RAOPT, UNOPT, OPHDR")
+Gui.uplForm.chkSubOptions.Create(CheckBox)
+Gui.uplForm.chkSubOptions.Enabled(False)
+Gui.uplForm.chkSubOptions.Size(2220,360)
+Gui.uplForm.chkSubOptions.Position(3765,1170)
+Gui.uplForm.chkSubOptions.Caption("Include All Sub-Options")
+Gui.uplForm.chkSubOptions.Event(Click,chkSubOptions_Click1)
+Gui.uplForm.chkSubOptions.ToolTip("All options files")
+Gui.SERVERNAME..Create
+Gui.SERVERNAME..Caption("Update Server Paths")
+Gui.SERVERNAME..Size(5805,2100)
+Gui.SERVERNAME..MinX(0)
+Gui.SERVERNAME..MinY(0)
+Gui.SERVERNAME..Position(0,0)
+Gui.SERVERNAME..BackColor(-2147483633)
+Gui.SERVERNAME..MousePointer(0)
+Gui.SERVERNAME..Event(UnLoad,Form_UnLoad)
+Gui.SERVERNAME.OSERVER.Create(TextBox,"",True,1785,300,0,120,1095,True,0,"Arial",8,-2147483643,1)
+Gui.SERVERNAME.NSERVER.Create(TextBox,"",True,2055,300,0,2310,1095,True,0,"Arial",8,-2147483643,1)
+Gui.SERVERNAME.lbl1.Create(Label,"Source Server Name",True,1935,255,0,120,795,True,0,"Arial",8,-2147483633,0)
+Gui.SERVERNAME.lbl2.Create(Label,"Destination Server Name",True,1935,255,0,2310,795,True,0,"Arial",8,-2147483633,0)
+Gui.SERVERNAME.lbl3.Create(Label,"Enter server information for path updates",True,3915,255,0,150,240,True,0,"Arial",8,-2147483633,0)
+Gui.SERVERNAME.cmd1.Create(Button)
+Gui.SERVERNAME.cmd1.Size(855,375)
+Gui.SERVERNAME.cmd1.Position(4635,1065)
+Gui.SERVERNAME.cmd1.Caption("OK")
+Gui.SERVERNAME.cmd1.Event(Click,update_Paths)
+Gui.Progress..Create
+Gui.Progress..Caption("Progress")
+Gui.Progress..Size(4695,2370)
+Gui.Progress..MinX(0)
+Gui.Progress..MinY(0)
+Gui.Progress..Position(0,0)
+Gui.Progress..BackColor(-2147483633)
+Gui.Progress..MousePointer(0)
+Gui.Progress.progressBar1.Create(ProgressBar)
+Gui.Progress.progressBar1.Size(3735,255)
+Gui.Progress.progressBar1.Position(270,840)
+Gui.Progress.lblStatus.Create(Label,"Label",True,1935,255,0,1170,450,True,0,"Arial",8,-2147483633,0)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.sCCC.Declare 
+V.Global.sSrc.Declare
+V.Global.sSrcCCC.Declare 'When uploading, this is the From CCC
+V.Global.sExtResults.Declare
+V.Global.sUplResults.Declare
+V.Global.bMode.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+V.Local.sIcon.Declare
+'V.Local.sLogo.Declare
+
+F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",v.Caller.PluginsDir,v.Local.sIcon)
+'F.Intrinsic.String.Build("{0}\GAB\GAS\GAB_GSS_Logo_Green_Dash.png",V.Caller.PluginsDir,v.Local.sLogo)
+
+
+Gui.extForm..Icon(V.Local.sIcon)
+Gui.mainForm..Icon(V.Local.sIcon)
+Gui.Progress..Icon(V.Local.sIcon)
+Gui.SERVERNAME..Icon(V.Local.sIcon)
+Gui.uplForm..Icon(V.Local.sIcon)
+
+gui.mainForm..Show
+
+Program.Sub.Main.End
+
+Program.Sub.extBtn_Click.Start
+V.Local.sSQL.Declare
+V.Local.sTemp.Declare
+
+V.Global.bMode.Set(False)
+
+F.Intrinsic.Control.CallSub(load_Ddl)
+gui.mainForm..Visible(False)
+
+'Make default company as the default option when selecting from drop down
+F.ODBC.Connection!con.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+V.Local.sSQL.Set("SELECT COCODE FROM COMPANIES WHERE DEFAULTCOMPANY = 1")
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sTemp)
+F.ODBC.Connection!con.Close
+gui.extForm.cccDdl.text(V.Local.sTemp)
+
+gui.extForm..Show
+
+Program.Sub.extBtn_Click.End
+
+Program.Sub.uplBtn_Click.Start
+V.Local.sSQL.Declare
+V.Local.sTemp.Declare
+V.Local.sChoice.Declare
+
+V.Global.bMode.Set(true)
+
+F.Intrinsic.Control.CallSub(load_ddl2)
+gui.mainForm..Visible(False)
+
+'Make default company as the default option when selecting from drop down
+F.ODBC.Connection!con.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+V.Local.sSQL.Set("SELECT COCODE FROM COMPANIES WHERE DEFAULTCOMPANY = 1")
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sTemp)
+F.ODBC.Connection!con.Close
+gui.uplForm.cccDdlUpl.text(V.Local.sTemp)
+
+gui.uplForm.chkActvRpt.Enabled(False)
+gui.uplForm.chkAll.Enabled(False)
+gui.uplForm.chkBI.Enabled(False)
+gui.uplForm.chkData.Enabled(False)
+gui.uplForm.chkExclOpt.Enabled(False)
+gui.uplForm.chkGAB.Enabled(False)
+gui.uplForm.chkLogo.Enabled(False)
+gui.uplForm.chkMKD.Enabled(False)
+gui.uplForm.cmdOK.Enabled(False)
+gui.uplForm..Show
+
+'Browse for and select the location of the Extract folder
+
+F.Intrinsic.UI.Msgbox("Existing company data for each selected option will be overwritten. Continue?","Caution: Data Overwrite",4,V.Local.sChoice)
+F.Intrinsic.Control.If(V.Local.sChoice,=,7)
+	F.Intrinsic.Control.CallSub(form_unload)
+F.Intrinsic.Control.ElseIf(V.Local.sChoice,=,6)
+	F.Intrinsic.UI.Msgbox("Source and Destination companies MUST be on same version of GSS. Continue?","Version Check",4,V.Local.sChoice)
+	F.Intrinsic.Control.If(V.Local.sChoice,=,7)
+		F.Intrinsic.Control.CallSub(form_unload)
+	F.Intrinsic.Control.ElseIf(V.Local.sChoice,=,6)
+		gui.uplForm.chkActvRpt.Enabled(True)
+		gui.uplForm.chkAll.Enabled(True)
+		gui.uplForm.chkBI.Enabled(True)
+		gui.uplForm.chkData.Enabled(True)
+		gui.uplForm.chkExclOpt.Enabled(True)
+		gui.uplForm.chkGAB.Enabled(True)
+		gui.uplForm.chkLogo.Enabled(True)
+		gui.uplForm.chkMKD.Enabled(True)
+		gui.uplForm.cmdOK.Enabled(True)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.uplBtn_Click.End
+
+Program.Sub.ext_OK_Click.Start
+V.Local.sPath.Declare
+V.Local.sTemp.Declare
+V.Local.sZip.Declare
+V.Local.bExists.Declare
+V.Local.sFile.Declare
+V.Local.iHdl.Declare
+
+V.Global.sCCC.Set(V.Screen.extForm!cccDdl.Text)
+
+F.Intrinsic.Control.If(V.Screen.extForm!chkData.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.extForm!chkActvRpt.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.extForm!chkBI.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.extForm!chkLogo.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.extForm!chkGAB.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.extForm!chkMKD.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.extForm!chkOptions.Value,=,0)
+		F.Intrinsic.UI.Msgbox("No options selected. Please select at least one option before proceeding.")
+		
+
+F.Intrinsic.Control.ElseIf(V.Global.sCCC,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a company code.")
+F.Intrinsic.Control.Else
+	gui.extForm..Visible(False)
+	F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+	F.Intrinsic.File.CreateDir(V.Local.sPath)
+	
+	F.Intrinsic.String.Build("{0}\Extract\{1}CompanyData.zip",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sZip)
+	f.Intrinsic.File.Exists(V.Local.sZip,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		f.Intrinsic.File.DeleteFile(V.Local.sZip)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(del_contents)
+	
+	F.Intrinsic.String.Build("{0}\Extract\Extract_results.txt",V.Caller.GlobalDir,V.Global.sExtResults)
+	F.Intrinsic.String.Build("Extract results{0}{0}",V.Ambient.NewLine,V.Local.sTemp)
+	f.Intrinsic.File.String2File(V.Global.sExtResults,V.Local.sTemp)
+
+	F.Intrinsic.String.Build("{0}\Extract\chkSub.txt",V.Caller.GlobalDir,V.Local.sFile)
+	F.Intrinsic.String.Build("Subroutine Check{0}",V.Ambient.NewLine,V.Local.sTemp)
+	f.Intrinsic.File.String2File(V.Local.sFile,V.Local.sTemp)
+	F.Intrinsic.File.GetHandle(V.Local.iHdl)
+	F.Intrinsic.File.OpenForAppend(V.Local.sFile,V.Local.iHdl)
+	
+	'Check selected copy options
+	F.Intrinsic.Control.If(V.Screen.extForm!chkData.Value,=,1)
+		F.Intrinsic.Control.CallSub(CopyFiles)
+		f.Intrinsic.File.WriteLine(V.Local.iHdl,"FILES")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.extForm!chkActvRpt.Value,=,1)
+		F.Intrinsic.Control.CallSub(copy_active_reports)
+		f.Intrinsic.File.WriteLine(V.Local.iHdl,"ACTIVE")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.extForm!chkBI.Value,=,1)
+		F.Intrinsic.Control.CallSub(copy_Reports)
+		f.Intrinsic.File.WriteLine(V.Local.iHdl,"REPORTS")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.extForm!chkLogo.Value,=,1)
+		F.Intrinsic.Control.CallSub(copy_logos)
+		f.Intrinsic.File.WriteLine(V.Local.iHdl,"LOGO")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.extForm!chkGAB.Value,=,1)
+		F.Intrinsic.Control.CallSub(copy_gab)
+		f.Intrinsic.File.WriteLine(V.Local.iHdl,"GAB")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.extForm!chkMKD.Value,=,1)
+		F.Intrinsic.Control.CallSub(copy_mkds)
+		f.Intrinsic.File.WriteLine(V.Local.iHdl,"MKDS")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.extForm!chkOptions.Value,=,1)
+		F.Intrinsic.Control.If(V.Screen.extForm!chkSubOptions.Value,=,1)
+			F.Intrinsic.Control.CallSub(copy_options,"bOptMode",1)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(copy_options,"bOptMode",0)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+	'Zip up contents of Extract directory
+	Gui.Progress..MousePointer(11)
+	F.Intrinsic.Control.CallSub(zip)
+	Gui.Progress..MousePointer(0)
+	F.Intrinsic.UI.Msgbox("Data has been prepared for upload")
+
+	F.Intrinsic.Control.CallSub(del_contents)
+
+	F.Intrinsic.Control.CallSub(form_unload)
+
+F.Intrinsic.Control.EndIf
+
+
+
+Program.Sub.ext_OK_Click.End
+
+Program.Sub.upl_OK_Click.Start
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.sDest.Declare
+V.Local.bFlag.Declare
+V.Local.sTemp.Declare
+V.Local.sFiles.Declare
+V.Local.sFile.Declare
+V.Local.iHdl.Declare
+V.Local.iHdl2.Declare
+V.Local.iHdl3.Declare
+V.Local.sNum.Declare
+V.Local.iNum.Declare
+V.Local.sFilesList.Declare
+V.Local.bExists.Declare
+V.Local.sRet.Declare
+V.Local.bEOF.Declare
+V.Local.iRet.Declare
+V.Local.bRun.Declare
+V.Local.sError.Declare
+
+V.Global.sCCC.Set(V.Screen.uplForm!cccDdlUpl.Text)
+
+'Check to see if any options have been selected before proceeding
+F.Intrinsic.Control.If(V.Screen.uplForm!chkData.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkActvRpt.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkBI.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkLogo.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkGAB.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkMKD.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkPaths.Value,=,0)
+	F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkOptions.Value,=,0)
+		F.Intrinsic.UI.Msgbox("No options selected. Please select at least one option before proceeding.")
+		F.Intrinsic.Control.ExitSub
+
+		
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkData.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkActvRpt.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkBI.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkLogo.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkGAB.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkMKD.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkOptions.Value,=,0)
+		F.Intrinsic.Control.AndIf(V.Screen.uplForm!chkPaths.Value,=,1)
+			gui.uplForm..Visible(False)
+			gui.SERVERNAME..Show
+			F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+		
+
+'Check to see if a destination company code was selected 
+F.Intrinsic.Control.ElseIf(V.Global.sCCC,=,"")
+	F.Intrinsic.UI.Msgbox("Please select a company code.")
+F.Intrinsic.Control.Else
+	gui.uplForm..Visible(False)
+
+	'Create EXTRACT directory
+	F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+	F.Intrinsic.File.CreateDir(V.Local.sPath)
+
+	Gui.Progress..Visible(True)
+	Gui.Progress.lblStatus.Text("Unpacking...")
+	Gui.Progress.progressBar1.Value(0)
+
+	'Copy zip folder and unzip contents
+	F.Intrinsic.Control.CallSub(copy_zip)
+	F.Intrinsic.String.Build("{0}\EXTRACT",v.Caller.GlobalDir,V.Local.sDest)
+	Gui.Progress..MousePointer(11)
+	F.Intrinsic.UI.Sleep(2)
+	F.Intrinsic.UI.Sleep(2)
+	F.Automation.ZIPPro.SetProperty(ArchiveFile,,V.Global.sSrc)
+	F.Automation.ZIPPro.SetProperty(ExtractToPath,,V.Local.sDest)
+
+	F.Automation.ZIPPro.ExtractAll()
+
+
+		
+	'Create Upload results log
+	F.Intrinsic.String.Build("{0}\Extract\Upload_results.txt",V.Caller.GlobalDir,V.Global.sUplResults)
+	F.Intrinsic.String.Build("Upload results{0}{0}",V.Ambient.NewLine,V.Local.sTemp)
+	f.Intrinsic.File.String2File(V.Global.sUplResults,V.Local.sTemp)
+
+	F.Intrinsic.String.Build("{0}\Extract\chkSub.txt",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetHandle(V.Local.iHdl)
+	
+
+	Gui.Progress..MousePointer(0)
+	'Check selected copy options and run corresponding process
+	'FILES
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkData.Value,=,1)
+		F.Intrinsic.File.GetHandle(V.Local.iHdl)
+		F.Intrinsic.File.OpenForRead(V.Local.sFiles,V.Local.iHdl)
+		F.Intrinsic.File.EOF(V.Local.iHdl,V.Local.bEOF)
+		f.Intrinsic.Control.DoUntil(V.Local.bEOF,=,True)
+			F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"FILES")
+				'Get DDF extract count and loop until the unzipped count matches. (This is to prevent the subs from running before the unzip is complete)
+				F.Intrinsic.String.Build("{0}\Extract\FileCount.txt",V.Caller.GlobalDir,V.Local.sFile)
+				F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+				F.Intrinsic.Control.If(V.Local.bExists,=,True)
+					F.Intrinsic.File.GetHandle(V.Local.iHdl3)
+					F.Intrinsic.File.OpenForRead(V.Local.sFile,V.Local.iHdl3)
+					F.Intrinsic.File.ReadLine(V.Local.iHdl3,V.Local.sNum)
+					F.Intrinsic.Math.ConvertToLong(V.Local.sNum,V.Local.iNum)
+					F.Intrinsic.String.Build("{0}\EXTRACT\FILES\*",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFilesList)
+					F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFile)
+					F.Intrinsic.String.Split(V.Local.sFile,":",V.Local.sFile)
+					f.Intrinsic.Control.DoUntil(V.Local.sFile.UBound,>=,V.Local.iNum)
+						F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFile)
+						F.Intrinsic.String.Split(V.Local.sFile,":",V.Local.sFile)
+					F.Intrinsic.Control.Loop
+					f.Intrinsic.File.CloseFile(V.Local.iHdl3)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Sleep(10)
+				F.Intrinsic.Control.EndIf
+
+			
+				F.Intrinsic.Control.CallSub(load_files)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		F.Intrinsic.Control.If(V.Local.bEOF,=,True)
+			f.Intrinsic.File.GetHandle(V.Local.iHdl2)
+			f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl2)
+			F.Intrinsic.File.WriteLine(V.Local.iHdl2,"FILES: No source files to upload.")
+			F.Intrinsic.File.CloseFile(V.Local.iHdl2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndIf
+	
+	'DDF/MKDS
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkMKD.Value,=,1)
+		F.Intrinsic.File.GetHandle(V.Local.iHdl)
+		F.Intrinsic.File.OpenForRead(V.Local.sFiles,V.Local.iHdl)
+		F.Intrinsic.File.EOF(V.Local.iHdl,V.Local.bEOF)
+		f.Intrinsic.Control.DoUntil(V.Local.bEOF,=,True)
+			F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"MKDS")
+				'Get DDF extract count and loop until the unzipped count matches. (This is to prevent the subs from running before the unzip is complete)
+				F.Intrinsic.String.Build("{0}\Extract\DDFCount.txt",V.Caller.GlobalDir,V.Local.sFile)
+				F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+				F.Intrinsic.Control.If(V.Local.bExists,=,True)
+					F.Intrinsic.File.GetHandle(V.Local.iHdl3)
+					F.Intrinsic.File.OpenForRead(V.Local.sFile,V.Local.iHdl3)
+					F.Intrinsic.File.ReadLine(V.Local.iHdl3,V.Local.sNum)
+					F.Intrinsic.Math.ConvertToLong(V.Local.sNum,V.Local.iNum)
+					F.Intrinsic.String.Build("{0}\EXTRACT\DDF\{1}\*",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFilesList)
+					F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFile)
+					F.Intrinsic.String.Split(V.Local.sFile,":",V.Local.sFile)
+					f.Intrinsic.Control.DoUntil(V.Local.sFile.UBound,>=,V.Local.iNum)
+						F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFile)
+						F.Intrinsic.String.Split(V.Local.sFile,":",V.Local.sFile)
+					F.Intrinsic.Control.Loop
+					f.Intrinsic.File.CloseFile(V.Local.iHdl3)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.UI.Sleep(10)
+				F.Intrinsic.Control.EndIf
+				f.Intrinsic.File.CloseFile(V.Local.iHdl3)
+	
+				F.Intrinsic.Control.CallSub(load_mkds)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		F.Intrinsic.Control.If(V.Local.bEOF,=,True)
+			f.Intrinsic.File.GetHandle(V.Local.iHdl2)
+			f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl2)
+			F.Intrinsic.File.WriteLine(V.Local.iHdl2,"MKDS: No source MKDs to upload.")
+			F.Intrinsic.File.CloseFile(V.Local.iHdl2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndIf
+	
+	'REPORT FILES
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkBI.Value,=,1)
+		F.Intrinsic.File.GetHandle(V.Local.iHdl)
+		F.Intrinsic.File.OpenForRead(V.Local.sFiles,V.Local.iHdl)
+		F.Intrinsic.File.EOF(V.Local.iHdl,V.Local.bEOF)
+		f.Intrinsic.Control.DoUntil(V.Local.bEOF,=,True)
+			F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"REPORTS")
+				F.Intrinsic.Control.CallSub(load_reports)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		F.Intrinsic.Control.If(V.Local.bEOF,=,True)
+			f.Intrinsic.File.GetHandle(V.Local.iHdl2)
+			f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl2)
+			F.Intrinsic.File.WriteLine(V.Local.iHdl2,"REPORTS: No source reports to upload.")
+			F.Intrinsic.File.CloseFile(V.Local.iHdl2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkGAB.Value,=,1)
+		F.Intrinsic.File.GetHandle(V.Local.iHdl)
+		F.Intrinsic.File.OpenForRead(V.Local.sFiles,V.Local.iHdl)
+		F.Intrinsic.File.EOF(V.Local.iHdl,V.Local.bEOF)
+		f.Intrinsic.Control.DoUntil(V.Local.bEOF,=,True)
+			F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"GAB")
+				F.Intrinsic.Control.CallSub(load_gab)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		F.Intrinsic.Control.If(V.Local.bEOF,=,True)
+			f.Intrinsic.File.GetHandle(V.Local.iHdl2)
+			f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl2)
+			F.Intrinsic.File.WriteLine(V.Local.iHdl2,"GAB: No source scripts to upload.")
+			F.Intrinsic.File.CloseFile(V.Local.iHdl2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndIf
+	
+	'ACTIVE REPORT DATA
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkActvRpt.Value,=,1)
+		F.Intrinsic.File.GetHandle(V.Local.iHdl)
+		F.Intrinsic.File.OpenForRead(V.Local.sFiles,V.Local.iHdl)
+		F.Intrinsic.File.EOF(V.Local.iHdl,V.Local.bEOF)
+		f.Intrinsic.Control.DoUntil(V.Local.bEOF,=,True)
+			F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"ACTIVE")
+				F.Intrinsic.Control.CallSub(load_active_reports)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		F.Intrinsic.Control.If(V.Local.bEOF,=,True)
+			f.Intrinsic.File.GetHandle(V.Local.iHdl2)
+			f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl2)
+			F.Intrinsic.File.WriteLine(V.Local.iHdl2,"ACTIVE: No source active BI data to upload.")
+			F.Intrinsic.File.CloseFile(V.Local.iHdl2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndIf
+	
+	'LOGOs
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkLogo.Value,=,1)
+		F.Intrinsic.File.GetHandle(V.Local.iHdl)
+		F.Intrinsic.File.OpenForRead(V.Local.sFiles,V.Local.iHdl)
+		F.Intrinsic.File.EOF(V.Local.iHdl,V.Local.bEOF)
+		f.Intrinsic.Control.DoUntil(V.Local.bEOF,=,True)
+			F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"LOGO")
+				F.Intrinsic.Control.CallSub(load_logos)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		F.Intrinsic.Control.If(V.Local.bEOF,=,True)
+			f.Intrinsic.File.GetHandle(V.Local.iHdl2)
+			f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl2)
+			F.Intrinsic.File.WriteLine(V.Local.iHdl2,"LOGO: No source logo to upload.")
+			F.Intrinsic.File.CloseFile(V.Local.iHdl2)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndIf
+	
+	'UPDATE PATHS
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkPaths.Value,=,1)
+		gui.SERVERNAME..Show
+		gui.SERVERNAME..WaitForDismiss
+	F.Intrinsic.Control.EndIf
+	
+	'OPTIONS ONLY
+	F.Intrinsic.Control.If(V.Screen.uplForm!chkOptions.Value,=,1)
+		F.Intrinsic.Control.If(V.Screen.uplForm!chkSubOptions.Value,=,1)
+			F.Intrinsic.Control.CallSub(load_Options,"bOptMode",1)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Control.CallSub(load_Options,"bOptMode",0)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	gui.uplForm..Visible(False)
+
+	F.Intrinsic.Control.CallSub(complete)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.upl_OK_Click.End
+
+Program.Sub.CopyFiles.Start
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sFiles.Declare
+V.Local.sFilesList.Declare
+V.Local.iCnt.Declare
+V.Local.sMsg.Declare
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.iRet.Declare
+V.Local.iHdl.Declare
+V.Local.iFileCnt.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Extracting files...")
+Gui.Progress.progressBar1.Value(0)
+
+
+F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.String.Build("{0}\FILES",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+
+Gui.Progress.progressBar1.Value(5)
+
+'Copy ?????ccc files
+F.Intrinsic.String.Build("{0}\?????{1}",V.Caller.FilesDir,V.Global.sCCC,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+V.Local.iFileCnt.Set(V.Local.sFiles.UBound)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,75,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'Copy ccc* files
+F.Intrinsic.String.Build("{0}\{1}*",V.Caller.FilesDir,V.Global.sCCC,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Math.Add(V.Local.iFileCnt,V.Local.sFiles.UBound,V.Local.iFileCnt)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,25,V.Local.iRet)
+	F.Intrinsic.Math.Add(V.Local.iRet,74,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"FILES: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+F.Intrinsic.String.Build("{0}\Extract\FileCount.txt",V.Caller.GlobalDir,V.Local.sFiles)
+F.Intrinsic.File.String2File(V.Local.sFiles,V.Local.iFileCnt)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+Program.Sub.CopyFiles.End
+
+Program.Sub.copy_Reports.Start
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sFiles.Declare
+V.Local.sFilesList.Declare
+V.Local.iCnt.Declare
+V.Local.sMsg.Declare
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.iRet.Declare
+V.Local.iHdl.Declare
+
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Extracting Reports and Labels...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.String.Build("{0}\BUSINT",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+F.Intrinsic.String.Build("{0}\BUSINT\PREPROC",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+F.Intrinsic.String.Build("{0}\BUSINT\CUSTOM",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+F.Intrinsic.String.Build("{0}\BUSINT\LABELS",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+
+'Copy BUSINT files
+F.Intrinsic.String.Build("{0}\*.*",V.Caller.BusintDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\{1}",V.Caller.BusintDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,70,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'Copy BUSINT\CUSTOM files
+F.Intrinsic.String.Build("{0}\CUSTOM\*.*",V.Caller.BusintDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\CUSTOM\{1}",V.Caller.BusintDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\CUSTOM\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+	F.Intrinsic.Math.Add(V.Local.iRet,69,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'Copy BUSINT\LABELS files
+F.Intrinsic.String.Build("{0}\LABELS\*.*",V.Caller.BusintDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\LABELS\{1}",V.Caller.BusintDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\LABELS\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+	F.Intrinsic.Math.Add(V.Local.iRet,79,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'Copy BUSINT\LABELS files
+F.Intrinsic.String.Build("{0}\PREPROC\*.*",V.Caller.BusintDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\PREPROC\{1}",V.Caller.BusintDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\PREPROC\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)	
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+	F.Intrinsic.Math.Add(V.Local.iRet,89,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"REPORTS: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress.progressBar1.Value(V.Local.iRet)
+Gui.Progress..Visible(False)
+
+Program.Sub.copy_Reports.End
+
+Program.Sub.copy_Active_Reports.Start
+V.Local.sSQL.Declare
+V.Local.iCnt.Declare
+V.Local.iCnt2.Declare
+V.Local.iFileHdl.Declare
+V.Local.sFile.Declare
+V.Local.iColCnt.Declare
+V.Local.iRowCnt.Declare
+V.Local.sColName.Declare
+V.Local.sVal.Declare
+V.Local.bExists.Declare
+V.Local.sMsg.Declare
+V.Local.iRet.Declare
+V.Local.iHdl.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Extracting Active Report Information...")
+Gui.Progress.progressBar1.Value(0)
+			
+''Check for file. If exists, delete it to start fresh
+'F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+'F.Intrinsic.Control.If(V.Local.bExists,=,True)
+'	F.Intrinsic.File.DeleteFile(V.Local.sFile)
+'	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+'	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+'		F.Intrinsic.String.Build("Could not delete {0}.",V.Local.sFile,V.Local.sMsg)
+'		F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+'		F.Intrinsic.Control.End
+
+'
+'	F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.EndIf			
+Gui.Progress.progressBar1.Value(10)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_ACTIVE_SEQ")
+Gui.Progress.progressBar1.Value(20)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_EMAIL_SEQ")
+Gui.Progress.progressBar1.Value(30)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_LOGO_SEQ")
+Gui.Progress.progressBar1.Value(40)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_NOTES_SEQ")
+Gui.Progress.progressBar1.Value(50)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_OVERRIDE_SEQ")	
+Gui.Progress.progressBar1.Value(60)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_PREPROC_USER")
+Gui.Progress.progressBar1.Value(70)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_USER_SEQ")
+Gui.Progress.progressBar1.Value(80)
+F.Intrinsic.Control.CallSub(write_sql,"sTableName","BIR_USER")
+Gui.Progress.progressBar1.Value(100)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"ACTIVE: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress..Visible(False)
+
+Program.Sub.copy_Active_Reports.End
+
+Program.Sub.copy_MKDs.Start
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sFiles.Declare
+V.Local.sFilesList.Declare
+V.Local.iCnt.Declare
+V.Local.sMsg.Declare
+V.Local.sFilesLeft.Declare
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.iRet.Declare
+V.Local.iHdl.Declare
+V.Local.iFileCnt.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Extracting MKDs...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.String.Build("{0}\DDF",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+F.Intrinsic.String.Build("{0}\DDF\{1}",V.Local.sPath,V.Global.sCCC,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+
+'Copy MKD files
+F.Intrinsic.String.Build("{0}\DDF\{1}\*.MKD",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\DDF\{1}\{2}",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\DDF\{1}\{2}",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.String.Left(V.Local.sFiles(V.Local.iCnt),4,V.Local.sFilesLeft)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,99,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.sFilesLeft,<>,"MENU")
+		F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Intrinsic.String.Build("{0}\EXTRACT\DDF\{1}\*.MKD",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+V.Local.iFileCnt.Set(V.Local.sFiles.UBound)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"MKDs: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+F.Intrinsic.String.Build("{0}\Extract\DDFCount.txt",V.Caller.GlobalDir,V.Local.sFiles)
+F.Intrinsic.File.String2File(V.Local.sFiles,V.Local.iFileCnt)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+
+Program.Sub.copy_MKDs.End
+
+Program.Sub.copy_GAB.Start
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sFiles.Declare
+V.Local.sFilesList.Declare
+V.Local.iCnt.Declare
+V.Local.sMsg.Declare
+V.Local.sFilesLeft.Declare
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.iRet.Declare
+V.Local.iHdl.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Extracting GAB Scripts...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.String.Build("{0}\PLUGINS",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+F.Intrinsic.String.Build("{0}\PLUGINS\GAB",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+F.Intrinsic.String.Build("{0}\PLUGINS\GAB\GAS",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+
+'Copy GAB files
+F.Intrinsic.String.Build("{0}\*.*",V.Caller.GasDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\{1}",V.Caller.GasDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\EXTRACT\PLUGINS\GAB\GAS\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,99,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"GAB: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+Program.Sub.copy_GAB.End
+
+Program.Sub.copy_Logos.Start
+V.Local.sOpt.Declare
+V.Local.sSQL.Declare
+V.Local.sTemp.Declare
+V.Local.sCompLogoPath.Declare
+V.Local.sCoCode.Declare
+V.Local.iHdl.Declare
+V.Local.sFile.Declare
+V.Local.sDest.Declare
+V.Local.sRetVar.Declare
+V.Local.iRet.Declare
+V.Local.bExists.Declare
+V.Local.sString.Declare
+
+Gui.Progress..Visible(True)
+
+Gui.Progress.lblStatus.Text("Extracting Logos...")
+Gui.Progress.progressBar1.Value(0)
+
+
+
+'Get company logo
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+F.Intrinsic.String.Build("SELECT LOGOPATH FROM COMPANIES WHERE COCODE = '{0}'",V.Global.sCCC,V.Local.sSQl)
+F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL, V.Local.sCompLogoPath)
+V.Local.sCompLogoPath.Set(V.Local.sCompLogoPath.RTrim)
+F.ODBC.Connection!conx.Close
+
+Gui.Progress.progressBar1.Value(25)
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+
+
+'Copy company logo to EXTRACT if it actually exists
+F.Intrinsic.String.Split(V.Local.sCompLogoPath,"\",V.Local.sRetVar)
+F.Intrinsic.String.Build("{0}\Extract\{1}",V.Caller.GlobalDir,V.Local.sRetVar(V.Local.sRetVar.Ubound),V.Local.sDest)
+F.Intrinsic.File.Exists(V.Local.sCompLogoPath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.CopyFile(V.Local.sCompLogoPath,V.Local.sDest)
+	F.Intrinsic.String.Build("{0}\EXTRACT\Logo.txt",V.Caller.GlobalDir,V.Local.sFile)
+	F.Intrinsic.String.Build("C!*!{0}",V.Local.sCompLogoPath,V.Local.sCompLogoPath)
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sCompLogoPath)
+	'Write results to log
+	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+	f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"COMPANY LOGO: Success")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.Else
+	'Write results to log
+	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+	f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"COMPANY LOGO: File does not exist in location specified. Copy manually.")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.EndIf
+
+Gui.Progress.progressBar1.Value(50)
+
+'Get Report Logo 
+'will need DB password -- unsure why I put this here before 
+F.Intrinsic.String.Build("GLOBAL_{0}",V.Global.sCCC,V.Local.sCoCode)
+F.ODBC.Connection!conx.OpenConnection(V.Local.sCoCode,V.Ambient.PUser,V.Ambient.PPass)
+V.Local.sSQL.Set("SELECT TEXT1 FROM OP_HEADER WHERE ID = '401046'")
+F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSQL,V.Local.sTemp)
+V.Local.sTemp.Set(V.Local.sTemp.RTrim)
+F.ODBC.Connection!conx.Close
+
+Gui.Progress.progressBar1.Value(75)
+
+'Copy report logo file to EXTRACT
+F.Intrinsic.String.Split(V.Local.sTemp,"\",V.Local.sRetVar)
+F.Intrinsic.String.Build("{0}\Extract\{1}",V.Caller.GlobalDir,V.Local.sRetVar(V.Local.sRetVar.Ubound),V.Local.sDest)
+F.Intrinsic.File.Exists(V.Local.sTemp,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.CopyFile(V.Local.sTemp,V.Local.sDest)
+	F.Intrinsic.String.Build("{0}\EXTRACT\Logo.txt",V.Caller.GlobalDir,V.Local.sFile)
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+	F.Intrinsic.String.Build("R!*!{0}",V.Local.sTemp,V.Local.sTemp)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sTemp)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}{1}{2}",V.Local.sCompLogoPath,V.Ambient.NewLine,V.Local.sTemp,V.Local.sString)
+		F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sString)
+		'f.Intrinsic.File.GetHandle(V.Local.iHdl)
+		'f.Intrinsic.File.OpenForAppend(V.Local.sFile,V.Local.iHdl)
+		'F.Intrinsic.File.WriteLine(V.Local.iHdl,V.Ambient.NewLine)
+		'F.Intrinsic.File.WriteLine(V.Local.iHdl,V.Local.sTemp)
+	F.Intrinsic.Control.Endif
+	'write results to log
+	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+	f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"REPORT LOGO: Success")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.Else
+	'write results to log
+	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+	f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"REPORT LOGO: File does not exist in location specified. Copy manually.")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.EndIf
+
+
+Gui.Progress.progressBar1.Value(100)
+
+
+
+Gui.Progress..Visible(False)
+
+
+Program.Sub.copy_Logos.End
+
+Program.Sub.write_SQL.Start
+V.Local.sSQL.Declare
+V.Local.iCnt.Declare
+V.Local.iCnt2.Declare
+V.Local.iFileHdl.Declare
+V.Local.sFile.Declare
+V.Local.iColCnt.Declare
+V.Local.iRowCnt.Declare
+V.Local.sColName.Declare
+V.Local.sVal.Declare
+
+'Open Common Connection	
+F.ODBC.Connection!con.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+
+'Create dataTable
+F.Intrinsic.String.Build("SELECT * FROM {0} WHERE COMPANY = '{1}'",V.Args.sTableName,V.Global.sCCC,V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtActive","con",V.Local.sSQL,True)
+
+'Open file for append
+F.Intrinsic.File.GetHandle(V.Local.iFileHdl)
+F.Intrinsic.String.Build("{0}\EXTRACT\Insert.txt",V.Caller.GlobalDir,V.Local.sFile)
+F.Intrinsic.File.OpenForAppend(V.Local.sFile,V.Local.iFileHdl)
+
+'Create gridView from dataTable
+Gui.extForm.GsGC1.AddGridviewFromDatatable("gvActive","dtActive")
+Gui.extForm.GsGC1.GetColumnCount("gvActive",V.Local.iColCnt)
+Gui.extForm.GsGC1.GetRowCount("gvActive",V.Local.iRowCnt)
+V.Local.iColCnt.Set(V.Local.iColCnt.--)
+V.Local.iRowCnt.Set(V.Local.iRowCnt.--)
+
+
+'Dump records into SQL statements
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.iRowCnt,1)
+	F.Intrinsic.Control.For(V.Local.iCnt2,0,V.Local.iColCnt,1)
+		Gui.extForm.GsGC1.GetColumnNameByIndex("gvActive",V.Local.iCnt2,V.Local.sColName)
+		Gui.extForm.GsGC1.GetCellValue("gvActive",V.Local.iCnt2,V.Local.iCnt,V.Local.sVal)
+		F.Intrinsic.String.Replace(V.Local.sVal,"'","''",V.Local.sVal)
+		F.Intrinsic.Control.If(V.Local.iCnt2,=,0)
+			F.Intrinsic.String.Build("INSERT INTO {0} VALUES ('{1}',",V.Args.sTableName,V.Local.sVal,V.Local.sSQL)
+		F.Intrinsic.Control.ElseIf(V.Local.iCnt2,=,V.Local.iColCnt)
+			F.Intrinsic.String.Build("{0}'{1}');",V.Local.sSQL,V.Local.sVal,V.Local.sSQL)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0}'{1}',",V.Local.sSQL,V.Local.sVal,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt2)
+	F.Intrinsic.File.WriteLine(V.Local.iFileHdl, V.Local.sSQL)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+
+
+'Close dataTable
+F.Data.DataTable.Close(dtActive)
+
+'Close file
+F.Intrinsic.File.CloseFile(V.Local.iFileHdl)
+F.ODBC.Connection!con.Close
+
+Program.Sub.write_SQL.End
+
+Program.Sub.zip.Start
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.sFilesList.Declare
+V.Local.sFiles.Declare
+V.Local.sFile.Declare
+V.Local.iCnt.Declare
+V.Local.bExists.Declare
+V.Local.sZip.Declare
+V.Local.iHdl.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Zipping Contents...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.String.Build("{0}\Extract\{1}CompanyData.zip",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sZip)
+f.Intrinsic.File.Exists(V.Local.sZip,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	f.Intrinsic.File.DeleteFile(V.Local.sZip)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("{0}\Extract\delete.bat",V.Caller.GlobalDir,V.Local.sFile)
+f.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFile)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.String.Build("{0}\Extract\*",V.Caller.GlobalDir,V.Local.sPath)
+Gui.Progress.progressBar1.Value(5)
+F.Intrinsic.String.Build("{0}\Extract\{1}CompanyData.zip",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sPath2)
+Gui.Progress.progressBar1.Value(10)
+F.Automation.ZIPPro.IncludeFiles(V.Local.sPath)
+F.Automation.ZIPPro.SetProperty(ArchiveFile,,V.Local.sPath2)
+F.Automation.ZIPPro.SetProperty(RecurseSubdirectories,,True)
+F.Automation.ZIPPro.Compress
+'F.Automation.Zip.Zip(V.Local.sPath,V.Local.sPath2)
+
+Gui.Progress.progressBar1.Value(75)
+
+F.Intrinsic.Task.ShellExec(V.Local.iHdl,"open",V.Global.sExtResults,"","",1)
+
+F.Intrinsic.Control.CallSub(del_contents)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+
+
+Program.Sub.zip.End
+
+Program.Sub.copy_Zip.Start
+V.Local.sSrc.Declare
+V.Local.sDest.Declare
+V.Local.sChoice.Declare
+V.Local.sTemp.Declare
+V.Local.sFiles.Declare
+V.Local.sRetVar.Declare
+
+'Browse for and select the location of the Extract folder
+F.Intrinsic.String.Build("{0}\Extract",V.Caller.GlobalDir,V.Local.sSrc)
+F.Intrinsic.UI.ShowOpenFileDialog("","*.zip",V.Local.sSrc,V.Global.sSrc)
+F.Intrinsic.String.Split(V.Global.sSrc,"\",V.Local.sRetVar)
+F.Intrinsic.String.Left(V.Local.sRetVar(V.Local.sRetVar.UBound),3,V.Global.sSrcCCC)
+F.Intrinsic.Control.If(V.Local.sSrc,<>,"***CANCEL***")
+	F.Intrinsic.File.GetFileList(V.Global.sSrc,V.Local.sFiles)
+	F.Intrinsic.Control.If(V.Local.sFiles(0),<>,"")
+		F.Intrinsic.String.Build("{0}\EXTRACT\{1}",V.Caller.GlobalDir,V.Local.sFiles(0),V.Local.sDest)
+		F.Intrinsic.File.CopyFile(V.Global.sSrc,V.Local.sDest)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.Control.CallSub(form_unload)
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.copy_Zip.End
+
+Program.Sub.load_Ddl.Start
+V.Local.sOutput.Declare
+'V.Local.retVar.Declare
+V.Local.iCnt.Declare
+V.Local.sDSN.Declare
+V.Local.bExists.Declare
+
+F.Global.General.GetCompanyCodes(V.Global.sCCC)
+F.Intrinsic.String.Split(V.Global.sCCC,"*!*",V.Global.sCCC)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Global.sCCC.UBound,1)
+	F.Intrinsic.Control.If(V.Global.sCCC(V.Local.iCnt),<>,"***NORETURN***")
+		F.Intrinsic.String.Build("GLOBAL_{0}",V.Global.sCCC(V.Local.iCnt),V.Local.sDSN)
+		F.ODBC.Misc.IsDSN(V.Local.sDSN,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			Gui.extForm.cccDdl.AddItem(V.Global.sCCC(V.Local.iCnt),V.Local.iCnt)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+
+Program.Sub.load_Ddl.End
+
+Program.Sub.load_Ddl2.Start
+V.Local.sOutput.Declare
+'V.Local.retVar.Declare
+V.Local.iCnt.Declare
+V.Local.sDSN.Declare
+V.Local.bExists.Declare
+
+F.Global.General.GetCompanyCodes(V.Global.sCCC)
+F.Intrinsic.String.Split(V.Global.sCCC,"*!*",V.Global.sCCC)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Global.sCCC.UBound,1)
+	F.Intrinsic.Control.If(V.Global.sCCC(V.Local.iCnt),<>,"***NORETURN***")
+		F.Intrinsic.String.Build("GLOBAL_{0}",V.Global.sCCC(V.Local.iCnt),V.Local.sDSN)
+		F.ODBC.Misc.IsDSN(V.Local.sDSN,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			Gui.uplForm.cccDdlUpl.AddItem(V.Global.sCCC(V.Local.iCnt),V.Local.iCnt)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+Program.Sub.load_Ddl2.End
+
+Program.Sub.chkAll_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkAll.Value,=,1)
+	Gui.extForm.chkActvRpt.Value(1)
+	Gui.extForm.chkData.Value(1)
+	Gui.extForm.chkGAB.Value(1)
+	Gui.extForm.chkLogo.Value(1)
+	Gui.extForm.chkMKD.Value(1)
+	Gui.extForm.chkBI.Value(1)
+	Gui.extForm.chkOptions.Value(0)
+	Gui.extForm.chkSubOptions.Value(0)
+	
+	gui.extForm.chkActvRpt.Enabled(False)
+	Gui.extForm.chkData.Enabled(False)
+	Gui.extForm.chkGAB.Enabled(False)
+	Gui.extForm.chkLogo.Enabled(False)
+	Gui.extForm.chkMKD.Enabled(False)
+	Gui.extForm.chkBI.Enabled(False)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	
+F.Intrinsic.Control.Else
+	gui.extForm.chkActvRpt.Enabled(True)
+	Gui.extForm.chkData.Enabled(True)
+	Gui.extForm.chkGAB.Enabled(True)
+	Gui.extForm.chkLogo.Enabled(True)
+	Gui.extForm.chkMKD.Enabled(True)
+	Gui.extForm.chkBI.Enabled(True)
+	gui.extForm.chkOptions.Enabled(True)
+	gui.extForm.chkSubOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkAll_Click.End
+
+Program.Sub.chkAllUpl_Click.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkAll.Value,=,1)
+	Gui.uplForm.chkActvRpt.Value(1)
+	Gui.uplForm.chkData.Value(1)
+	Gui.uplForm.chkGAB.Value(1)
+	Gui.uplForm.chkLogo.Value(1)
+	Gui.uplForm.chkMKD.Value(1)
+	Gui.uplForm.chkBI.Value(1)
+	Gui.uplForm.chkPaths.Value(1)
+	
+	gui.uplForm.chkActvRpt.Enabled(False)
+	Gui.uplForm.chkData.Enabled(False)
+	Gui.uplForm.chkGAB.Enabled(False)
+	Gui.uplForm.chkLogo.Enabled(False)
+	Gui.uplForm.chkMKD.Enabled(False)
+	Gui.uplForm.chkBI.Enabled(False)
+	Gui.uplForm.chkPaths.Enabled(False)
+	Gui.uplForm.chkExclOpt.Enabled(False)
+	
+F.Intrinsic.Control.Else
+	gui.uplForm.chkActvRpt.Enabled(True)
+	Gui.uplForm.chkData.Enabled(True)
+	Gui.uplForm.chkGAB.Enabled(True)
+	Gui.uplForm.chkLogo.Enabled(True)
+	Gui.uplForm.chkMKD.Enabled(True)
+	Gui.uplForm.chkBI.Enabled(True)
+	Gui.uplForm.chkPaths.Enabled(True)
+	Gui.uplForm.chkExclOpt.Enabled(True)
+	
+F.Intrinsic.Control.EndIf
+Program.Sub.chkAllUpl_Click.End
+
+Program.Sub.load_active_reports.Start
+V.Local.iHdl.Declare
+V.Local.sRetVar.Declare
+V.Local.sFile.Declare
+V.Local.iCnt.Declare
+V.Local.sSQL.Declare
+V.Local.bExists.Declare
+V.Local.sMsg.Declare
+V.Local.iMax.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading Active Report Information...")
+Gui.Progress.progressBar1.Value(0)
+
+'F.Intrinsic.UI.Msgbox("Deleting BI Table records")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_ACTIVE_SEQ")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_EMAIL_SEQ")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_LOGO_SEQ")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_NOTES_SEQ")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_OVERRIDE_SEQ")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_PREPROC_USER")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_USER_SEQ")
+F.Intrinsic.Control.CallSub(del_tablerecs,"sTableName","BIR_USER")
+
+Gui.Progress.progressBar1.Value(50)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+'F.Intrinsic.UI.Msgbox("Inserting BI Table records")
+F.Intrinsic.String.Build("{0}\EXTRACT\Insert.txt",V.Caller.GlobalDir,V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sRetVar)
+	F.Intrinsic.String.Replace(V.Local.sRetVar,"'True'","1",V.Local.sRetVar)
+	F.Intrinsic.String.Replace(V.Local.sRetVar,"'False'","0",V.Local.sRetVar)
+	'Change PLA to a variable that holds the FROM company code
+	F.Intrinsic.Control.If(V.Global.sCCC,<>,V.Global.sSrcCCC)
+		F.Intrinsic.String.Replace(V.Local.sRetVar,V.Global.sSrcCCC,V.Global.sCCC,V.Local.sRetVar)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.String.Split(V.Local.sRetVar,V.Ambient.NewLine,V.Local.sRetVar)
+	F.Intrinsic.Math.Sub(V.Local.sRetVar.UBound,1,V.Local.iMax)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.iMax,1)
+		F.Intrinsic.String.Build("{0}",V.Local.sRetVar(V.Local.iCnt),V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.Else
+'	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+'	f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+'	F.Intrinsic.File.WriteLine(V.Local.iHdl,"ACTIVE REPORTS: No active report information provided from source. Activation configuration could not be set.")
+'	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"ACTIVE: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+F.ODBC.Connection!con.Close
+Program.Sub.load_active_reports.End
+
+Program.Sub.load_Reports.Start
+V.Local.sFilesList.Declare
+V.Local.sFiles.Declare
+V.Local.iCnt.Declare
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sChoice.Declare
+V.Local.iRet.Declare
+V.Local.bExists.Declare
+V.Local.iHdl.Declare
+V.Local.sCustomDir.Declare
+
+
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading Reports...")
+Gui.Progress.progressBar1.Value(0)
+
+
+F.Intrinsic.Control.Try
+'F.Intrinsic.UI.Msgbox("Proceeding will overwrite standard reports, custom reports, labels, and preprocessors for all companies on destination environment. Continue?","WARNING",4,V.Local.sChoice)
+'F.Intrinsic.Control.If(V.Local.sChoice,=,7)
+'	F.Intrinsic.UI.Msgbox("Reports and labels NOT copied.")
+'	F.Intrinsic.Control.ExitSub
+'	
+'F.Intrinsic.Control.ElseIf(V.Local.sChoice,=,6)
+'	F.Intrinsic.UI.Msgbox("Copying reports and labels")
+'	Copy BUSINT files
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\*.*",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetFileList(V.Local.sFiles,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,":",V.Local.sFilesList)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFilesList.UBound,1)
+		F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\{1}",V.Caller.GlobalDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}\{1}",V.Caller.BusintDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sDest)
+		F.Intrinsic.File.Exists(V.Local.sDest,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			f.Intrinsic.File.SetFileAttributes(v.Local.sDest,0)
+			f.Intrinsic.File.DeleteFile(V.Local.sDest)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,40,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+
+	'Copy BUSINT\CUSTOM files
+	F.Intrinsic.String.Build("{0}\CUSTOM",V.Caller.BusintDir,V.Local.sCustomDir)
+	F.Intrinsic.File.DirExists(V.Local.sCustomDir,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.File.CreateDir(V.Local.sCustomDir)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\CUSTOM\*.*",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetFileList(V.Local.sFiles,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,":",V.Local.sFilesList)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFilesList.UBound,1)
+		F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\CUSTOM\{1}",V.Caller.GlobalDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}\CUSTOM\{1}",V.Caller.BusintDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sDest)
+		F.Intrinsic.File.Exists(V.Local.sDest,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			f.Intrinsic.File.SetFileAttributes(v.Local.sDest,0)		
+			f.Intrinsic.File.DeleteFile(V.Local.sDest)
+		F.Intrinsic.Control.EndIf		
+		F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,40,V.Local.iRet)
+		F.Intrinsic.Math.Add(V.Local.iRet,40,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	'Copy BUSINT\LABELS files
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\LABELS\*.*",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetFileList(V.Local.sFiles,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,":",V.Local.sFilesList)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFilesList.UBound,1)
+		F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\LABELS\{1}",V.Caller.GlobalDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}\LABELS\{1}",V.Caller.BusintDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sDest)
+		F.Intrinsic.File.Exists(V.Local.sDest,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			f.Intrinsic.File.SetFileAttributes(v.Local.sDest,0)
+			f.Intrinsic.File.DeleteFile(V.Local.sDest)
+		F.Intrinsic.Control.EndIf		
+		F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+		F.Intrinsic.Math.Add(V.Local.iRet,80,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+		'Copy BUSINT\PREPROC files
+	F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\PREPROC\*.*",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetFileList(V.Local.sFiles,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,":",V.Local.sFilesList)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFilesList.UBound,1)
+		F.Intrinsic.String.Build("{0}\EXTRACT\BUSINT\PREPROC\{1}",V.Caller.GlobalDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}\PREPROC\{1}",V.Caller.BusintDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sDest)
+		F.Intrinsic.File.Exists(V.Local.sDest,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			f.Intrinsic.File.SetFileAttributes(v.Local.sDest,0)
+			f.Intrinsic.File.DeleteFile(V.Local.sDest)
+		F.Intrinsic.Control.EndIf		
+		F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,9,V.Local.iRet)
+		F.Intrinsic.Math.Add(V.Local.iRet,90,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+'F.Intrinsic.Control.EndIf
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"REPORTS: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+f.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox("There was an issue loading one or more report files. Click Abort to exit the program or Ignore to continue.","Copy Error",2,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,3)
+		F.Intrinsic.Control.CallSub(del_Contents)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.ElseIf(V.Local.iRet,=,5)
+		f.Intrinsic.File.GetHandle(V.Local.iHdl)
+		f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+		F.Intrinsic.File.WriteLine(V.Local.iHdl,"REPORTS: Fail")
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndTry
+
+
+Program.Sub.load_Reports.End
+
+Program.Sub.load_MKDs.Start
+V.Local.sPath.Declare
+V.Local.bExists.Declare
+V.Local.sFile.Declare
+V.Local.sFiles.Declare
+V.Local.iCnt.Declare
+V.Local.sRetVar.Declare
+V.Local.sSrc.Declare
+V.Local.sDest.Declare
+V.Local.iFHdl.Declare
+V.Local.bFlag.Declare(Boolean,False)
+V.Local.iHdl.Declare
+V.Local.sMsg.Declare
+V.Local.iRet.Declare
+V.Local.sDir.Declare
+
+'For each MKD in the source DDF folder...
+'Check to see if a table exists in the destination environment
+'If so, copy it. If not, add it to a list of tables that need
+'to be manually created
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading MKDs...")
+Gui.Progress.progressBar1.Value(0)
+
+F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'See if DDF data was saved by export process
+F.Intrinsic.String.Build("{0}\EXTRACT\DDF",V.Caller.GlobalDir,V.Local.sPath)
+F.Intrinsic.File.DirExists(V.Local.sPath,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.String.Build("{0}\EXTRACT\DDF\{1}\*.MKD",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sPath)
+	F.Intrinsic.File.GetFileList(V.Local.sPath,V.Local.sFiles)
+	F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+	
+	'Check for Global\Temp\4568\CCC directory. Create if doesn't exist.
+	F.Intrinsic.String.Build("{0}\4568\{1}", V.Caller.TempDir,V.Global.sSrcCCC,V.Local.sDir)
+	F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.File.CreateDir(V.Local.sDir)
+	F.Intrinsic.Control.EndIf
+	
+	'Create Missing_tables.txt if doesn't exist, open for append if does
+	F.Intrinsic.String.Build("{0}\4568\{1}\Missing_tables.txt",V.Caller.TempDir,V.Global.sSrcCCC,V.Local.sFile)
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.String.Build("The following tables do not exist in the destination so their MKDs were not copied. The corresponding tables may be custom and need to be created manually.{0}",V.Ambient.NewLine,V.Local.sMsg)
+		F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sMsg)
+		f.Intrinsic.File.GetHandle(V.Local.iFHdl)
+		F.Intrinsic.File.OpenForAppend(V.Local.sFile,V.Local.iFHdl)
+	F.Intrinsic.Control.Else
+		f.Intrinsic.File.GetHandle(V.Local.iFHdl)
+		F.Intrinsic.File.OpenForAppend(V.Local.sFile,V.Local.iFHdl)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+		'get basename from MKD file to compare table name
+		F.Intrinsic.String.Split(V.Local.sFiles(V.Local.iCnt),".",V.Local.sRetVar)
+		F.ODBC.Connection!conx.TableExists(V.Local.sRetVar(0),V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			'Copy file
+			F.Intrinsic.String.Build("{0}\EXTRACT\DDF\{1}\{2}",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFiles(V.Local.iCnt),V.Local.sSrc)
+			F.Intrinsic.String.Build("{0}\DDF\{1}\{2}",V.Caller.GlobalDir,V.Global.sCCC,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+			F.Intrinsic.File.CopyFile(V.Local.sSrc,V.Local.sDest)
+			F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+				F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+			F.Intrinsic.Control.Else
+				V.Local.iRet.Set(1)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Mult(V.Local.iRet,99,V.Local.iRet)
+			Gui.Progress.progressBar1.Value(V.Local.iRet)
+		F.Intrinsic.Control.Else
+			'Add to file missing_tables.txt
+			F.Intrinsic.File.WriteLine(V.Local.iFHdl,V.Local.sRetVar(0))
+			V.Local.bFlag.Set(True) 'Flag for whether missing_Tables.txt was written to	
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	f.Intrinsic.File.CloseFile(V.Local.iFHdl)
+	F.Intrinsic.Control.If(V.Local.bFlag,=,True)
+		f.Intrinsic.File.GetHandle(V.Local.iHdl)
+		f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+		F.Intrinsic.File.WriteLine(V.Local.iHdl,"MKDs: Some custom tables do not exist in destination company. Those MKDs were not copied. Tables will need to be manually created. See ..\Global\Temp\4568\ccc\missing_Tables.txt for more information")
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)		
+'		F.Intrinsic.UI.Msgbox("Some custom tables do not exist in destination company. Those MKDs were not copied. Tables will need to be manually created.")
+'		F.Intrinsic.Task.ShellExec(V.Local.iHdl,"open",V.Local.sFile,"","",1)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.File.DeleteFile(V.Local.sFile)
+	F.Intrinsic.Control.EndIf
+'F.Intrinsic.Control.Else
+'	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+'	f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+'	F.Intrinsic.File.WriteLine(V.Local.iHdl,"MKDs: DDF directory was not copied from source. MKDs could not be copied")
+'	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"MKDs: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+F.ODBC.Connection!conx.Close
+Program.Sub.load_MKDs.End
+
+Program.Sub.load_Files.Start
+V.Local.sFilesList.Declare
+V.Local.sFiles.Declare
+V.Local.iCnt.Declare
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sNewFile.Declare
+V.Local.sBaseName.Declare
+V.Local.iRet.Declare
+V.Local.sRetFile.Declare
+V.Local.iHdl.Declare
+V.Local.bExists.Declare
+
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading files...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.Global.sCCC,<>,V.Global.sSrcCCC)
+	'Rename Source CCC to Dest CCC
+	Gui.Progress.lblStatus.Text("Renaming files...")
+
+
+	F.Intrinsic.String.Build("{0}\EXTRACT\FILES\?????{1}",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFilesList)
+	F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+	F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+		F.Intrinsic.String.Left(V.Local.sFiles(V.Local.iCnt),5,V.Local.sBaseName)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}{1}",V.Local.sBaseName,V.Global.sCCC,V.Local.sNewFile)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sNewFile,V.Local.sDest)
+		F.Intrinsic.File.MoveFile(V.Local.sSource,V.Local.sDest,V.Local.iRet)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}*",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFilesList)
+	F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+	F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+		F.Intrinsic.String.Split(V.Local.sFiles(V.Local.iCnt),V.Global.sSrcCCC,V.Local.sRetFile)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}{1}",V.Global.sCCC,V.Local.sRetFile(1),V.Local.sNewFile)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sNewFile,V.Local.sDest)
+		F.Intrinsic.File.MoveFile(V.Local.sSource,V.Local.sDest,V.Local.iRet)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+		F.Intrinsic.Math.Add(V.Local.iRet,10,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.EndIf
+
+Gui.Progress.progressBar1.Value(20)
+
+F.Intrinsic.Control.If(V.Screen.uplForm!chkExclOpt.Value,=,1)
+		Gui.Progress.lblStatus.Text("Removing option files...")
+		F.Intrinsic.Control.CallSub(del_Options)
+F.Intrinsic.Control.EndIf
+
+Gui.Progress.progressBar1.Value(25)
+
+'Copy all files from EXTRACT directory into FILES directory
+Gui.Progress.lblStatus.Text("Loading/copying files...")
+F.Intrinsic.String.Build("{0}\EXTRACT\FILES\*.*",V.Caller.GlobalDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,74,V.Local.iRet)
+	F.Intrinsic.Math.Add(V.Local.iRet,25,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"FILES: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+
+
+Gui.Progress.progressBar1.Value(100)
+
+f.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox("There was an issue loading one or more data files. Click Abort to exit the program or Ignore to continue.","Copy Error",2,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,3)
+		F.Intrinsic.Control.CallSub(del_Contents)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.ElseIf(V.Local.iRet,=,5)
+		f.Intrinsic.File.GetHandle(V.Local.iHdl)
+		f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+		F.Intrinsic.File.WriteLine(V.Local.iHdl,"FILES: Fail")
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndTry
+
+Program.Sub.load_Files.End
+
+Program.Sub.load_logos.Start
+V.Local.sFile.Declare
+V.Local.bExists.Declare
+V.Local.iHdl.Declare
+V.Local.sSQL.Declare
+V.Local.sSrc.Declare
+V.Local.sDest.Declare
+V.Local.sRetVar.Declare
+V.Local.sLogoFile.Declare
+V.Local.sLogos.Declare
+V.Local.sLogoPath.Declare
+V.Local.sFlag.Declare
+V.Local.iCnt.Declare
+
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading Logos...")
+Gui.Progress.progressBar1.Value(0)
+
+
+'Check if Logo.txt file exists indicating that at least one logo was copied
+F.Intrinsic.String.Build("{0}\EXTRACT\Logo.txt",V.Caller.GlobalDir,V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	'F.Intrinsic.File.GetHandle(V.Local.iHdl)
+	'F.Intrinsic.File.OpenForRead(V.Local.sFile,V.Local.iHdl)
+	Gui.Progress.progressBar1.Value(25)
+	F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sLogos)
+	'F.Intrinsic.File.ReadLine(V.Local.iHdl,V.Local.sLogoFile)
+	F.Intrinsic.String.Split(V.Local.sLogos,V.ASCII.10,V.Local.sLogos) 'V.ASCII.10 or V.ASCII.11
+	F.Intrinsic.Control.For(V.Local.iCnt,V.Local.sLogos.LBound,V.Local.sLogos.UBound,1)
+		F.Intrinsic.String.Split(V.Local.sLogos(V.Local.iCnt),"!*!",V.Local.sLogoPath) 'LogoPath = [C][UNC]
+		F.Intrinsic.String.Split(V.Local.sLogoPath(1),"\",V.Local.sLogoFile) 'LogoFile = [server][apps][global][sp2][logo]
+		V.Local.sLogoFile.Set(V.Local.sLogoFile(V.Local.sLogoFile.UBound)) 'LogoFile = the name of the actual file
+		F.Intrinsic.String.Build("{0}\EXTRACT\{1}",V.Caller.GlobalDir,V.Local.sLogoFile,V.Local.sSrc)
+		F.Intrinsic.String.Build("{0}\SP2\{1}",V.Caller.GlobalDir,V.Local.sLogoFile,V.Local.sDest)
+		F.Intrinsic.File.CopyFile(V.Local.sSrc,V.Local.sDest)
+		F.Intrinsic.Control.If(V.Local.sLogoPath(0),=,"R") 'R indicates Report Logo
+			F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+			F.Intrinsic.String.Build("{0}\SP2\{1}",V.Caller.GlobalDir,V.Local.sLogoFile,V.Local.sLogoPath)
+			'F.Intrinsic.String.Build("UPDATE OP_HEADER SET TEXT1 = '{0}' WHERE ID = '401046';",V.Local.sLogoPath,V.Local.sSQL)
+			F.Global.General.SaveOption(401046,0000,1,"",V.Local.sLogoPath,V.Local.sLogoPath,"","")
+			'F.ODBC.Connection!conx.Execute(V.Local.sSQL)
+			F.ODBC.Connection!conx.Close
+		F.Intrinsic.Control.Elseif(V.Local.sLogoPath(0),=,"C") 'C indicates Company Logo
+			F.ODBC.Connection!conx.OpenConnection(V.Ambient.CCon,V.Ambient.Cuser,V.Ambient.CPass)
+			F.Intrinsic.String.Build("{0}\SP2\{1}",V.Caller.GlobalDir,V.Local.sLogoFile,V.Local.sLogoPath)
+			F.Intrinsic.String.Build("UPDATE COMPANIES SET LOGOPATH = '{0}' WHERE COCODE = '{1}';",V.Local.sLogoPath,V.Global.sCCC,V.Local.sSQL)
+			F.ODBC.Connection!conx.Execute(V.Local.sSQL)
+			F.ODBC.Connection!conx.Close
+		F.Intrinsic.Control.EndIf			
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+
+
+	
+	
+	Gui.Progress.progressBar1.Value(75)
+
+	'F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+	f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"LOGO: Success")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+'F.Intrinsic.Control.Else
+'	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+'	f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+'	F.Intrinsic.File.WriteLine(V.Local.iHdl,"LOGO: Logo was not saved from source. Could not load logo.")
+'	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.EndIf
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+
+Program.Sub.load_logos.End
+
+Program.Sub.load_gab.Start
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sFiles.Declare
+V.Local.sFilesList.Declare
+V.Local.iCnt.Declare
+V.Local.sMsg.Declare
+V.Local.sFilesLeft.Declare
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.iRet.Declare
+V.Local.bExists.Declare
+V.Local.iHdl.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading GAB Scripts...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.String.Build("{0}\EXTRACT\PLUGINS\GAB\GAS\*.*",V.Caller.GlobalDir,V.Local.sFilesList)
+F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+	F.Intrinsic.String.Build("{0}\EXTRACT\PLUGINS\GAB\GAS\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+	F.Intrinsic.String.Build("{0}\PLUGINS\GAB\GAS\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+	F.Intrinsic.File.Exists(V.Local.sDest,V.Local.bExists)
+	F.Intrinsic.Control.Try
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			f.Intrinsic.File.SetFileAttributes(v.Local.sDest,0)
+			f.Intrinsic.File.DeleteFile(V.Local.sDest)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("GAB: There was an issue loading file {0}. File may be in use.",V.Local.sDest, V.Local.sMsg)
+'		F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+		f.Intrinsic.File.GetHandle(V.Local.iHdl)
+		f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+		F.Intrinsic.File.WriteLine(V.Local.iHdl,V.Local.sMsg)
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	F.Intrinsic.Control.EndTry
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Math.Mult(V.Local.iRet,99,V.Local.iRet)
+	Gui.Progress.progressBar1.Value(V.Local.iRet)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"GAB: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+Program.Sub.load_gab.End
+
+Program.Sub.del_tablerecs.Start
+V.Local.sSQL.Declare
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+'F.Intrinsic.UI.Msgbox(V.Global.sCCC)
+F.Intrinsic.String.Build("DELETE FROM {0} WHERE COMPANY = '{1}'",V.Args.sTableName,V.Global.sCCC,V.Local.sSQL)
+'F.Intrinsic.UI.Msgbox(V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.ODBC.Connection!con.Close
+Program.Sub.del_tablerecs.End
+
+Program.Sub.Form_UnLoad.Start
+F.Intrinsic.Control.End
+
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.update_Paths.Start
+'Borrowed from server swap program written by CM/AV
+
+V.Local.sSQL.Declare
+V.Local.sOldServer.Declare
+V.Local.sNewServer.Declare
+V.Local.sDSN.Declare
+V.Local.sDSNChk.Declare
+V.Local.sCompCode.Declare
+V.Local.iDSNTotal.Declare
+V.Local.iCnt.Declare
+V.Local.iHdl.Declare
+V.Local.bExists.Declare
+
+gui.SERVERNAME..Visible(False)
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Updating System Paths...")
+Gui.Progress.progressBar1.Value(0)
+
+
+'Open GlobalCommon Connection
+F.ODBC.Connection!Common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+
+V.Local.sOldServer.Set(V.Screen.SERVERNAME!OSERVER.Text)
+F.Intrinsic.String.UCase(V.Local.sOldServer,V.Local.sOldServer)
+
+V.Local.sNewServer.Set(V.Screen.SERVERNAME!NSERVER.Text)
+F.Intrinsic.String.UCase(V.Local.sNewServer,V.Local.sNewServer)
+
+'GS_REGISTRY
+F.ODBC.Connection!Common.Execute("UPDATE GS_REGISTRY SET SVAL = UPPER(SVAL);")
+F.Intrinsic.String.Build("UPDATE GS_REGISTRY SET SVAL = (REPLACE(SVAL,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(5)
+'BIR_USER_SEQ
+F.ODBC.Connection!Common.Execute("UPDATE BIR_USER_SEQ SET REPORT_PATH = UPPER(REPORT_PATH);")
+F.Intrinsic.String.Build("UPDATE BIR_USER_SEQ SET REPORT_PATH = (REPLACE(REPORT_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(10)
+'COMPANIES "LOGO"
+F.ODBC.Connection!Common.Execute("UPDATE COMPANIES SET LOGOPATH = UPPER(LOGOPATH);")
+F.Intrinsic.String.Build("UPDATE COMPANIES SET LOGOPATH = (REPLACE(LOGOPATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(15)
+'BIR_OVERRIDE_SEQ
+F.ODBC.Connection!Common.Execute("UPDATE BIR_OVERRIDE_SEQ SET OVERRIDE_PATH = UPPER(OVERRIDE_PATH);")
+F.Intrinsic.String.Build("UPDATE BIR_OVERRIDE_SEQ SET OVERRIDE_PATH = (REPLACE(OVERRIDE_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(20)
+'BIR_PREPROC_GLOBAL
+F.ODBC.Connection!Common.Execute("UPDATE BIR_PREPROC_GLOBAL SET PREPROCESSOR_PATH = UPPER(PREPROCESSOR_PATH);")
+F.Intrinsic.String.Build("UPDATE BIR_PREPROC_GLOBAL SET PREPROCESSOR_PATH = (REPLACE(PREPROCESSOR_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(25)
+'BIR_PREPROC_USER
+F.ODBC.Connection!Common.Execute("UPDATE BIR_PREPROC_USER SET PREPROCESSOR_PATH = UPPER(PREPROCESSOR_PATH);")
+F.Intrinsic.String.Build("UPDATE BIR_PREPROC_USER SET PREPROCESSOR_PATH = (REPLACE(PREPROCESSOR_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(30)
+'BIR_LOGO_SEQ
+F.ODBC.Connection!Common.Execute("UPDATE BIR_LOGO_SEQ SET LOGO_PATH = UPPER(LOGO_PATH);")
+F.Intrinsic.String.Build("UPDATE BIR_LOGO_SEQ SET LOGO_PATH = (REPLACE(LOGO_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(35)
+'BIR_GLOBAL_SEQ
+F.ODBC.Connection!Common.Execute("UPDATE BIR_GLOBAL_SEQ SET REPORT_PATH = UPPER(REPORT_PATH);")
+F.Intrinsic.String.Build("UPDATE BIR_GLOBAL_SEQ SET REPORT_PATH = (REPLACE(REPORT_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!Common.Execute(V.Local.sSQL)
+Gui.Progress.progressBar1.Value(40)
+
+F.ODBC.Connection!Common.Close
+
+F.Intrinsic.String.Build("GLOBAL_{0}",V.Global.sCCC,V.Local.sDSN)
+F.ODBC.Connection!con.OpenConnection(V.Local.sDSN,V.Ambient.PUser,V.Ambient.PPass)
+'F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'ATG_DOC_ASSOC
+F.ODBC.Connection!con.Execute("UPDATE ATG_DOC_ASSOC SET PATH = UPPER(PATH);")
+F.Intrinsic.String.Build("UPDATE ATG_DOC_ASSOC SET PATH = (REPLACE(PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(45)
+' ATG_DOC_PATH
+F.ODBC.Connection!con.Execute("UPDATE ATG_DOC_PATH SET PATH = UPPER(PATH);")
+F.Intrinsic.String.Build("UPDATE ATG_DOC_PATH SET PATH = (REPLACE(PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(55)
+'LINK_DATA
+F.ODBC.Connection!con.Execute("UPDATE LINK_DATA SET PATH = UPPER(PATH);")
+F.Intrinsic.String.Build("UPDATE LINK_DATA SET PATH = (REPLACE(PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(60)
+'HOOK_ASSOCIATION
+F.ODBC.Connection!con.Execute("UPDATE HOOK_ASSOCIATION SET SCRIPT_PATH = UPPER(SCRIPT_PATH);")
+F.Intrinsic.String.Build("UPDATE HOOK_ASSOCIATION SET SCRIPT_PATH = (REPLACE(SCRIPT_PATH,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(65)
+'OP_HEADER
+F.ODBC.Connection!con.Execute("UPDATE OP_HEADER SET TEXT1 = UPPER(TEXT1) WHERE ID NOT IN (400184, 400185, 401898);")
+F.Intrinsic.String.Build("UPDATE OP_HEADER SET TEXT1 = (REPLACE(TEXT1,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(70)
+'BI_RPT CRYSTAL_FILE_NAME
+F.ODBC.Connection!con.Execute("UPDATE BI_RPT SET CRYSTAL_FILE_NAME = UPPER(CRYSTAL_FILE_NAME);")
+F.Intrinsic.String.Build("UPDATE BI_RPT SET CRYSTAL_FILE_NAME = (REPLACE(CRYSTAL_FILE_NAME,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(80)
+'BI_RPT OVERRIDE_RPT
+F.ODBC.Connection!con.Execute("UPDATE BI_RPT SET OVERRIDE_RPT = UPPER(OVERRIDE_RPT);")
+F.Intrinsic.String.Build("UPDATE BI_RPT SET OVERRIDE_RPT = (REPLACE(OVERRIDE_RPT,'{0}','{1}'))",V.Local.sOldServer,V.Local.sNewServer,V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.LocaL.sSQL)
+Gui.Progress.progressBar1.Value(95)
+
+F.ODBC.Connection!con.Close
+
+'Write results to file
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+F.Intrinsic.File.Exists(V.Global.sUplResults,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"PATHS: Success")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Complete","Update Paths")
+F.Intrinsic.Control.EndIf
+
+Gui.Progress.progressBar1.Value(100)
+F.Intrinsic.Control.CallSub(complete)
+
+Program.Sub.update_Paths.End
+
+Program.Sub.unload_Servername.Start
+gui.SERVERNAME..Visible(False)
+F.Intrinsic.Control.End
+
+Program.Sub.unload_Servername.End
+
+Program.Sub.del_Options.Start
+V.Local.sFileList.Declare
+V.Local.sRetVar.Declare
+V.Local.iCnt.Declare
+V.Local.sFile.Declare
+V.Local.sNewFile.Declare
+V.Local.bExists.Declare
+
+'List of Company Options files
+V.Local.sFileList.Set("AVCHR@@@:BALGP@@@:BLCOM@@@:BLCTR@@@:BIOPT@@@:CSRTY@@@:CSTPL@@@:DSHGL@@@:ENGOP@@@:ENGT1@@@:ENGTB@@@:GLCAL@@@:")
+F.Intrinsic.String.Build("{0}GLSUM@@@:IALTC@@@:IINF1@@@:IINF2@@@:ISORT@@@:IVEND@@@:LOCAD@@@:MDEPT@@@:OEINV@@@:OECRR@@@:OECTM@@@:OEFAC@@@:",V.Local.sFileList,V.Local.sFileList)
+F.Intrinsic.String.Build("{0}OEFRT@@@:OENUM@@@:OPHDR@@@:OPPCD@@@:ORATE@@@:PHASE@@@:PJOPT@@@:PLQDC@@@:PMTYP@@@:PRGRP@@@:QUSR3@@@:QUSR4@@@:",V.Local.sFileList,V.Local.sFileList)
+F.Intrinsic.String.Build("{0}RAOPT@@@:SALSP@@@:SCHRG@@@:TAXCD@@@:UMCNV@@@:UMDSC@@@:UNOPT@@@:USERT@@@:USERA@@@:WPYGP@@@:WSTCD@@@:WSUPP@@@:",V.Local.sFileList,V.Local.sFileList)
+F.Intrinsic.String.Build("{0}@@@ARCRR-V1:@@@OECRR-V1:CASAT@@@:GBLOG@@@:@@@SHIPVIA-V0:@@@COMMXREF-V1:@@@COMMENTS-V0",V.Local.sFileList,V.Local.sFileList)
+F.Intrinsic.String.Split(V.Local.sFileList,":",V.Local.sRetVar)
+
+'Format list to build company specific file names; delete these files from zip to avoid copy over
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sRetVar.UBound,1)
+	F.Intrinsic.String.Right(V.Local.sRetVar(V.Local.iCnt),3,V.Local.sFile)
+	F.Intrinsic.Control.If(V.Local.sFile,=,"@@@")
+		F.Intrinsic.String.Left(V.Local.sRetVar(V.Local.iCnt),5,V.Local.sFile)
+		F.Intrinsic.String.Build("{0}{1}",V.Local.sFile,V.Global.sCCC,V.Local.sNewFile)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sNewFile,V.Local.sNewFile)
+		F.Intrinsic.File.Exists(V.Local.sNewFile,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			F.Intrinsic.File.DeleteFile(V.Local.sNewFile)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else	
+		F.Intrinsic.String.Mid(V.Local.sRetVar(V.Local.iCnt),3,V.Local.sFile)
+		F.Intrinsic.String.Build("{0}{1}",V.Global.sCCC,V.Local.sFile,V.Local.sNewFile)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sNewFile,V.Local.sNewFile)
+		F.Intrinsic.File.Exists(V.Local.sNewFile,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,True)
+			F.Intrinsic.File.DeleteFile(V.Local.sNewFile)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+Program.Sub.del_Options.End
+
+Program.Sub.del_Contents.Start
+V.Local.sPath.Declare
+V.Local.sFilesList.Declare
+V.Local.sFiles.Declare
+V.Local.sFile.Declare
+V.Local.iCnt.Declare
+V.Local.bExists.Declare
+V.Local.iFile.Declare
+V.Local.sCmd.Declare
+V.Local.sDest.Declare
+V.Local.iRet.Declare
+
+Gui.Progress.lblStatus.Text("Tidying up...")
+
+F.Intrinsic.String.Build("{0}\Extract\delete.bat",V.Caller.GlobalDir,V.Local.sFile)
+f.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	F.Intrinsic.File.DeleteFile(V.Local.sFile)
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.String.Build("{0}\Extract\delete.txt",V.Caller.GlobalDir,V.Local.sFile)
+F.Intrinsic.File.String2File(V.Local.sFile,"")
+f.Intrinsic.File.GetHandle(V.Local.iFile)
+F.Intrinsic.File.OpenForWrite(V.Local.sFile,V.Local.iFile)
+F.Intrinsic.String.Build("@ECHO OFF",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("DEL {0}\EXTRACT\FILES /S /F /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("RMDIR {0}\EXTRACT\FILES /S /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("DEL {0}\EXTRACT\BUSINT /S /F /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("RMDIR {0}\EXTRACT\BUSINT /S /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("DEL {0}\EXTRACT\PLUGINS /S /F /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("RMDIR {0}\EXTRACT\PLUGINS /S /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("DEL {0}\EXTRACT\DDF /S /F /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+F.Intrinsic.String.Build("RMDIR {0}\EXTRACT\DDF /S /Q{1}",V.Caller.GlobalDir,V.Ambient.NewLine,V.Local.sCmd)
+F.Intrinsic.File.WriteLine(V.Local.iFile,V.Local.sCmd)
+f.Intrinsic.File.CloseFile(V.Local.iFile)
+F.Intrinsic.String.Build("{0}\Extract\delete.bat",V.Caller.GlobalDir,V.Local.sDest)
+f.Intrinsic.File.MoveFile(V.Local.sFile,V.Local.sDest,V.Local.iRet)
+F.Intrinsic.Task.Launchsync(V.Local.sDest)
+
+'Get a list of all files left in the Extract directory and delete non-zip and integral files
+F.Intrinsic.Control.If(V.Global.bMode,=,False) 'Extract
+	F.Intrinsic.String.Build("{0}\Extract\*.*",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetFileList(V.Local.sFiles,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,":",V.Local.sFilesList)
+	f.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFilesList.UBound,1)
+		f.Intrinsic.String.Split(V.Local.sFilesList(V.Local.iCnt),".",V.Local.sFiles)
+		f.Intrinsic.Control.If(V.Local.sFiles(1),<>,"zip")
+		F.Intrinsic.Control.AndIf(V.Local.sFiles(0),<>,"Extract_results")
+				F.Intrinsic.String.Build("{0}\Extract\{1}",V.Caller.GlobalDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sFile)
+				f.Intrinsic.File.DeleteFile(V.Local.sFile)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.ElseIf(V.Global.bMode,=,True) 'Upload
+	'Get a list of all files left in the Extract directory and delete non-zip and integral files
+	F.Intrinsic.String.Build("{0}\Extract\*.*",V.Caller.GlobalDir,V.Local.sFiles)
+	F.Intrinsic.File.GetFileList(V.Local.sFiles,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,":",V.Local.sFilesList)
+	f.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFilesList.UBound,1)
+		f.Intrinsic.String.Split(V.Local.sFilesList(V.Local.iCnt),".",V.Local.sFiles)
+		f.Intrinsic.Control.If(V.Local.sFiles(1),<>,"zip")
+			F.Intrinsic.Control.AndIf(V.Local.sFiles(0),<>,"Upload_results")
+				F.Intrinsic.String.Build("{0}\Extract\{1}",V.Caller.GlobalDir,V.Local.sFilesList(V.Local.iCnt),V.Local.sFile)
+				f.Intrinsic.File.DeleteFile(V.Local.sFile)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.del_Contents.End
+
+Program.Sub.complete.Start
+V.Local.iHdl.Declare
+
+F.Intrinsic.Control.CallSub(del_contents)
+
+'gui.SERVERNAME..Visible(False)
+'F.Intrinsic.UI.Msgbox("Complete")
+'F.Intrinsic.Control.End
+
+F.Intrinsic.Task.ShellExec(V.Local.iHdl,"open",V.Global.sUplResults,"","",1)
+
+gui.Progress..Visible(False)
+F.Intrinsic.Control.End
+
+Program.Sub.complete.End
+
+Program.Sub.EventHandlers.Start
+F.Intrinsic.Control.AddEventHandler("ZIPProError",error)
+Program.Sub.EventHandlers.End
+
+Program.Sub.error.Start
+V.Local.sMsg.Declare
+F.Intrinsic.String.Build("{0}{1}{2}{1}{3}",V.Args.Description,V.Ambient.NewLine,V.Args.ErrorCode,V.Ambient.NewLine,V.Args.Filename,V.Local.sMsg)
+F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+Program.Sub.error.End
+
+Program.Sub.copy_Options.Start
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sFiles.Declare
+V.Local.sFilesList.Declare
+V.Local.iCnt.Declare
+V.Local.sMsg.Declare
+V.Local.sPath.Declare
+V.Local.sPath2.Declare
+V.Local.iRet.Declare
+V.Local.iHdl.Declare
+V.Local.iFileCnt.Declare
+V.Local.bRet.Declare
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Extracting option files...")
+Gui.Progress.progressBar1.Value(0)
+
+
+F.Intrinsic.String.Build("{0}\EXTRACT",V.Caller.GlobalDir,V.Local.sPath)
+F.Intrinsic.File.CreateDir(V.Local.sPath)
+F.Intrinsic.String.Build("{0}\FILES",V.Local.sPath,V.Local.sPath2)
+F.Intrinsic.File.CreateDir(V.Local.sPath2)
+
+Gui.Progress.progressBar1.Value(5)
+
+F.Intrinsic.Control.If(V.Args.bOptMode,=,0)
+	'Copy only 3 major options files
+	F.Intrinsic.String.Build("UNOPT{0}|RAOPT{0}|OPHDR{0}",V.Global.sCCC,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,"|",V.Local.sFiles)
+	V.Local.iFileCnt.Set(V.Local.sFiles.UBound)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+		F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+		F.Intrinsic.File.Exists(V.Local.sSource, V.Local.bRet)
+		F.Intrinsic.Control.If(V.Local.bRet)
+			F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.EndIf	
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,75,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.ElseIf(V.Args.bOptMode,=,1)
+	'Copy all options files. List was obtained via CopyCompanyList.XML found in FILES directory
+	F.Intrinsic.String.Build("AVCHR{0}|BALGP{0}|BLCOM{0}|BLCTR{0}|BIOPT{0}|CSRTY{0}|CSTPL{0}|DSHGL{0}|ENGOP{0}|ENGT1{0}|ENGTB{0}|GLCAL{0}|GLSUM{0}|IALTC{0}|IINF1{0}|IINF2{0}|ISORT{0}",V.Global.sCCC,V.Local.sFilesList)
+	F.Intrinsic.String.Build("{1}|IVEND{0}|LOCAD{0}|MDEPT{0}|OEINV{0}|OECRR{0}|OECTM{0}|OEFAC{0}|OEFRT{0}|OENUM{0}|OPHDR{0}|OPPCD{0}|ORATE{0}|PHASE{0}|PJOPT{0}|PLQDC{0}|PMTYP{0}",V.Global.sCCC,V.Local.sFilesList,V.Local.sFilesList)
+	F.Intrinsic.String.Build("{1}|PRGRP{0}|QUSR3{0}|QUSR4{0}|RAOPT{0}|SALSP{0}|SCHRG{0}|TAXCD{0}|UMCNV{0}|UMDSC{0}|UNOPT{0}|USERT{0}|USERA{0}|WPYGP{0}|WSTCD{0}|WSUPP{0}|{0}ARCRR-V1|{0}ARCRR-V2",V.Global.sCCC,V.Local.sFilesList,V.Local.sFilesList)
+	F.Intrinsic.String.Build("{1}|{0}ARCRR-V3|{0}OECRR-V1|CASAT{0}|GBLOG{0}|{0}COMMXREF-V1|{0}COMMENTS-V0",V.Global.sCCC,V.Local.sFilesList,V.Local.sFilesList)
+	F.Intrinsic.String.Split(V.Local.sFilesList,"|",V.Local.sFiles)
+	F.Intrinsic.Math.Add(V.Local.iFileCnt,V.Local.sFiles.UBound,V.Local.iFileCnt)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+		F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+		F.Intrinsic.File.Exists(V.Local.sSource, V.Local.bRet)
+		F.Intrinsic.Control.If(V.Local.bRet)
+			F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+			F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+		F.Intrinsic.Control.Else
+			V.Local.iRet.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Math.Mult(V.Local.iRet,25,V.Local.iRet)
+		F.Intrinsic.Math.Add(V.Local.iRet,74,V.Local.iRet)
+		Gui.Progress.progressBar1.Value(V.Local.iRet)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.File.GetHandle(V.Local.iHdl)
+f.Intrinsic.File.OpenForAppend(V.Global.sExtResults,V.Local.iHdl)
+F.Intrinsic.File.WriteLine(V.Local.iHdl,"OPTION FILES: Success")
+F.Intrinsic.File.CloseFile(V.Local.iHdl)
+
+'F.Intrinsic.String.Build("{0}\Extract\FileCount.txt",V.Caller.GlobalDir,V.Local.sFiles)
+'F.Intrinsic.File.String2File(V.Local.sFiles,V.Local.iFileCnt)
+
+Gui.Progress.progressBar1.Value(100)
+Gui.Progress..Visible(False)
+Program.Sub.copy_Options.End
+
+Program.Sub.load_Options.Start
+V.Local.sFilesList.Declare
+V.Local.sFiles.Declare
+V.Local.iCnt.Declare
+V.Local.sSource.Declare
+V.Local.sDest.Declare
+V.Local.sNewFile.Declare
+V.Local.sBaseName.Declare
+V.Local.iRet.Declare
+V.Local.sRetFile.Declare
+V.Local.iHdl.Declare
+V.Local.bExists.Declare
+V.Local.bRet.Declare
+
+
+Gui.Progress..Visible(True)
+Gui.Progress.lblStatus.Text("Loading option files...")
+Gui.Progress.progressBar1.Value(0)
+
+F.Intrinsic.Control.Try
+	
+	'Rename Source CCC to Dest CCC if necessary
+	F.Intrinsic.Control.If(V.Global.sCCC,<>,V.Global.sSrcCCC)
+		
+		Gui.Progress.lblStatus.Text("Renaming files...")
+	
+	
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\?????{1}",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFilesList)
+		F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+		F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+			F.Intrinsic.String.Left(V.Local.sFiles(V.Local.iCnt),5,V.Local.sBaseName)
+			F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+			F.Intrinsic.String.Build("{0}{1}",V.Local.sBaseName,V.Global.sCCC,V.Local.sNewFile)
+			F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sNewFile,V.Local.sDest)
+			F.Intrinsic.File.MoveFile(V.Local.sSource,V.Local.sDest,V.Local.iRet)
+			F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+				F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+			F.Intrinsic.Control.Else
+				V.Local.iRet.Set(1)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+			Gui.Progress.progressBar1.Value(V.Local.iRet)
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+		
+		F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}*",V.Caller.GlobalDir,V.Global.sSrcCCC,V.Local.sFilesList)
+		F.Intrinsic.File.GetFileList(V.Local.sFilesList,V.Local.sFiles)
+		F.Intrinsic.String.Split(V.Local.sFiles,":",V.Local.sFiles)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+			F.Intrinsic.String.Split(V.Local.sFiles(V.Local.iCnt),V.Global.sSrcCCC,V.Local.sRetFile)
+			F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+			F.Intrinsic.String.Build("{0}{1}",V.Global.sCCC,V.Local.sRetFile(1),V.Local.sNewFile)
+			F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sNewFile,V.Local.sDest)
+			F.Intrinsic.File.MoveFile(V.Local.sSource,V.Local.sDest,V.Local.iRet)
+			F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+				F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+			F.Intrinsic.Control.Else
+				V.Local.iRet.Set(1)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Mult(V.Local.iRet,10,V.Local.iRet)
+			F.Intrinsic.Math.Add(V.Local.iRet,10,V.Local.iRet)
+			Gui.Progress.progressBar1.Value(V.Local.iRet)
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.Progress.progressBar1.Value(20)
+	
+	Gui.Progress.progressBar1.Value(25)
+
+
+	'Copy all files from EXTRACT directory into FILES directory
+	Gui.Progress.lblStatus.Text("Loading/copying option files...")
+	
+	F.Intrinsic.Control.If(V.Args.bOptMode,=,1)
+		'Copy all options files. List was obtained via CopyCompanyList.XML found in FILES directory
+		F.Intrinsic.String.Build("AVCHR{0}|BALGP{0}|BLCOM{0}|BLCTR{0}|BIOPT{0}|CSRTY{0}|CSTPL{0}|DSHGL{0}|ENGOP{0}|ENGT1{0}|ENGTB{0}|GLCAL{0}|GLSUM{0}|IALTC{0}|IINF1{0}|IINF2{0}|ISORT{0}",V.Global.sCCC,V.Local.sFilesList)
+		F.Intrinsic.String.Build("{1}|IVEND{0}|LOCAD{0}|MDEPT{0}|OEINV{0}|OECRR{0}|OECTM{0}|OEFAC{0}|OEFRT{0}|OENUM{0}|OPHDR{0}|OPPCD{0}|ORATE{0}|PHASE{0}|PJOPT{0}|PLQDC{0}|PMTYP{0}",V.Global.sCCC,V.Local.sFilesList,V.Local.sFilesList)
+		F.Intrinsic.String.Build("{1}|PRGRP{0}|QUSR3{0}|QUSR4{0}|RAOPT{0}|SALSP{0}|SCHRG{0}|TAXCD{0}|UMCNV{0}|UMDSC{0}|UNOPT{0}|USERT{0}|USERA{0}|WPYGP{0}|WSTCD{0}|WSUPP{0}|{0}ARCRR-V1|{0}ARCRR-V2",V.Global.sCCC,V.Local.sFilesList,V.Local.sFilesList)
+		F.Intrinsic.String.Build("{1}|{0}ARCRR-V3|{0}OECRR-V1|CASAT{0}|GBLOG{0}|{0}COMMXREF-V1|{0}COMMENTS-V0",V.Global.sCCC,V.Local.sFilesList,V.Local.sFilesList)
+		F.Intrinsic.String.Split(V.Local.sFilesList,"|",V.Local.sFiles)
+		
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+			F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+			F.Intrinsic.String.Build("{0}\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+			F.Intrinsic.File.Exists(V.Local.sSource, V.Local.bRet)
+			F.Intrinsic.Control.If(V.Local.bRet)
+				F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+			F.Intrinsic.Control.EndIf	
+				F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+					F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+				F.Intrinsic.Control.Else
+					V.Local.iRet.Set(1)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Mult(V.Local.iRet,74,V.Local.iRet)
+			F.Intrinsic.Math.Add(V.Local.iRet,25,V.Local.iRet)
+			Gui.Progress.progressBar1.Value(V.Local.iRet)
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+		
+	F.Intrinsic.Control.ElseIf(V.Args.bOptMode,=,0)
+	
+		'Copy only 3 major options files
+		F.Intrinsic.String.Build("UNOPT{0}|RAOPT{0}|OPHDR{0}",V.Global.sCCC,V.Local.sFilesList)
+		F.Intrinsic.String.Split(V.Local.sFilesList,"|",V.Local.sFiles)
+		V.Local.iFileCnt.Set(V.Local.sFiles.UBound)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sFiles.UBound,1)
+			F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFiles(V.Local.iCnt),V.Local.sDest)
+			F.Intrinsic.String.Build("{0}\EXTRACT\FILES\{1}",V.Caller.GlobalDir,V.Local.sFiles(V.Local.iCnt),V.Local.sSource)
+			F.Intrinsic.File.Exists(V.Local.sSource, V.Local.bRet)
+			F.Intrinsic.Control.If(V.Local.bRet)
+				F.Intrinsic.File.CopyFile(V.Local.sSource,V.Local.sDest)
+			F.Intrinsic.Control.EndIf	
+			F.Intrinsic.Control.If(V.Local.sFiles.UBound,>,0)
+				F.Intrinsic.Math.Div(V.Local.iCnt,V.Local.sFiles.UBound,V.Local.iRet)
+			F.Intrinsic.Control.Else
+				V.Local.iRet.Set(1)
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.Math.Mult(V.Local.iRet,75,V.Local.iRet)
+			Gui.Progress.progressBar1.Value(V.Local.iRet)
+		F.Intrinsic.Control.Next(V.Local.iCnt)	
+		
+	F.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.File.GetHandle(V.Local.iHdl)
+	f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+	F.Intrinsic.File.WriteLine(V.Local.iHdl,"OPTION FILES: Success")
+	F.Intrinsic.File.CloseFile(V.Local.iHdl)
+	
+	Gui.Progress.progressBar1.Value(100)
+
+f.Intrinsic.Control.Catch
+	F.Intrinsic.UI.Msgbox("There was an issue loading one or more data files. Click Abort to exit the program or Ignore to continue.","Copy Error",2,V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet,=,3)
+		F.Intrinsic.Control.CallSub(del_Contents)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.ElseIf(V.Local.iRet,=,5)
+		f.Intrinsic.File.GetHandle(V.Local.iHdl)
+		f.Intrinsic.File.OpenForAppend(V.Global.sUplResults,V.Local.iHdl)
+		F.Intrinsic.File.WriteLine(V.Local.iHdl,"OPTION FILES: Fail")
+		F.Intrinsic.File.CloseFile(V.Local.iHdl)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndTry
+Program.Sub.load_Options.End
+
+Program.Sub.chkOptions_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkOptions.Value,=,1)
+	gui.extForm.chkActvRpt.Enabled(False)
+	Gui.extForm.chkData.Enabled(False)
+	Gui.extForm.chkGAB.Enabled(False)
+	Gui.extForm.chkLogo.Enabled(False)
+	Gui.extForm.chkMKD.Enabled(False)
+	Gui.extForm.chkBI.Enabled(False)
+	Gui.extForm.chkAll.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(True)
+	
+	Gui.extForm.chkActvRpt.Value(0)
+	Gui.extForm.chkData.Value(0)
+	Gui.extForm.chkGAB.Value(0)
+	Gui.extForm.chkLogo.Value(0)
+	Gui.extForm.chkMKD.Value(0)
+	Gui.extForm.chkBI.Value(0)
+	
+F.Intrinsic.Control.Else
+
+	gui.extForm.chkActvRpt.Enabled(True)
+	Gui.extForm.chkData.Enabled(True)
+	Gui.extForm.chkGAB.Enabled(True)
+	Gui.extForm.chkLogo.Enabled(True)
+	Gui.extForm.chkMKD.Enabled(True)
+	Gui.extForm.chkBI.Enabled(True)
+	Gui.extForm.chkAll.Enabled(True)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Value(0)
+	
+F.Intrinsic.Control.EndIf
+Program.Sub.chkOptions_Click.End
+
+Program.Sub.chkData_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkData.Value,=,1)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkOptions.Value(0)
+	gui.extForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.extForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkData_Click.End
+
+Program.Sub.chkBI_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkBI.Value,=,1)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkOptions.Value(0)
+	gui.extForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.extForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkBI_Click.End
+
+Program.Sub.chkActvRpt_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkActvRpt.Value,=,1)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkOptions.Value(0)
+	gui.extForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.extForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkActvRpt_Click.End
+
+Program.Sub.chkMKD_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkMKD.Value,=,1)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkOptions.Value(0)
+	gui.extForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.extForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkMKD_Click.End
+
+Program.Sub.chkLogo_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkLogo.Value,=,1)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkOptions.Value(0)
+	gui.extForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.extForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkLogo_Click.End
+
+Program.Sub.chkGAB_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkGAB.Value,=,1)
+	Gui.extForm.chkOptions.Enabled(False)
+	Gui.extForm.chkSubOptions.Enabled(False)
+	Gui.extForm.chkOptions.Value(0)
+	gui.extForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.extForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkGAB_Click.End
+
+Program.Sub.chkSubOptions_Click.Start
+F.Intrinsic.Control.If(V.Screen.extForm!chkSubOptions.Value,=,1)
+	gui.extForm.chkActvRpt.Enabled(False)
+	Gui.extForm.chkData.Enabled(False)
+	Gui.extForm.chkGAB.Enabled(False)
+	Gui.extForm.chkLogo.Enabled(False)
+	Gui.extForm.chkMKD.Enabled(False)
+	Gui.extForm.chkBI.Enabled(False)
+	Gui.extForm.chkAll.Enabled(False)
+		
+	Gui.extForm.chkActvRpt.Value(0)
+	Gui.extForm.chkData.Value(0)
+	Gui.extForm.chkGAB.Value(0)
+	Gui.extForm.chkLogo.Value(0)
+	Gui.extForm.chkMKD.Value(0)
+	Gui.extForm.chkBI.Value(0)
+		
+F.Intrinsic.Control.EndIf
+Program.Sub.chkSubOptions_Click.End
+
+Program.Sub.chkOptions_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkOptions.Value,=,1)
+	gui.uplForm.chkActvRpt.Enabled(False)
+	Gui.uplForm.chkData.Enabled(False)
+	Gui.uplForm.chkGAB.Enabled(False)
+	Gui.uplForm.chkLogo.Enabled(False)
+	Gui.uplForm.chkMKD.Enabled(False)
+	Gui.uplForm.chkBI.Enabled(False)
+	Gui.uplForm.chkAll.Enabled(False)
+	Gui.uplForm.chkPaths.Enabled(False)
+	Gui.uplForm.chkExclOpt.Enabled(False)
+	
+	Gui.uplForm.chkSubOptions.Enabled(True)
+	
+	Gui.uplForm.chkActvRpt.Value(0)
+	Gui.uplForm.chkData.Value(0)
+	Gui.uplForm.chkGAB.Value(0)
+	Gui.uplForm.chkLogo.Value(0)
+	Gui.uplForm.chkMKD.Value(0)
+	Gui.uplForm.chkBI.Value(0)
+	Gui.uplForm.chkExclOpt.Value(0)
+	
+F.Intrinsic.Control.Else
+
+	gui.uplForm.chkActvRpt.Enabled(True)
+	Gui.uplForm.chkData.Enabled(True)
+	Gui.uplForm.chkGAB.Enabled(True)
+	Gui.uplForm.chkLogo.Enabled(True)
+	Gui.uplForm.chkMKD.Enabled(True)
+	Gui.uplForm.chkBI.Enabled(True)
+	Gui.uplForm.chkAll.Enabled(True)
+	Gui.uplForm.chkPaths.Enabled(True)
+	Gui.uplForm.chkExclOpt.Enabled(True)
+	
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	
+	Gui.uplForm.chkSubOptions.Value(0)
+	
+F.Intrinsic.Control.EndIf
+Program.Sub.chkOptions_Click1.End
+
+Program.Sub.chkSubOptions_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkSubOptions.Value,=,1)
+	gui.uplForm.chkActvRpt.Enabled(False)
+	Gui.uplForm.chkData.Enabled(False)
+	Gui.uplForm.chkGAB.Enabled(False)
+	Gui.uplForm.chkLogo.Enabled(False)
+	Gui.uplForm.chkMKD.Enabled(False)
+	Gui.uplForm.chkBI.Enabled(False)
+	Gui.uplForm.chkAll.Enabled(False)
+	Gui.uplForm.chkPaths.Enabled(False)
+	Gui.uplForm.chkExclOpt.Enabled(False)
+		
+	Gui.uplForm.chkActvRpt.Value(0)
+	Gui.uplForm.chkData.Value(0)
+	Gui.uplForm.chkGAB.Value(0)
+	Gui.uplForm.chkLogo.Value(0)
+	Gui.uplForm.chkMKD.Value(0)
+	Gui.uplForm.chkBI.Value(0)
+	Gui.uplForm.chkPaths.Value(0)
+	Gui.uplForm.chkExclOpt.Value(0)
+		
+F.Intrinsic.Control.EndIf
+Program.Sub.chkSubOptions_Click1.End
+
+Program.Sub.chkGAB_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkGAB.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkGAB_Click1.End
+
+Program.Sub.chkMKD_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkMKD.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkMKD_Click1.End
+
+Program.Sub.chkLogo_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkLogo.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkLogo_Click1.End
+
+Program.Sub.chkPaths_Click.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkPaths.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkPaths_Click.End
+
+Program.Sub.chkActvRpt_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkActvRpt.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkActvRpt_Click1.End
+
+Program.Sub.chkBI_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkBI.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkBI_Click1.End
+
+Program.Sub.chkData_Click1.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkData.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkData_Click1.End
+
+Program.Sub.chkExclOpt_Click.Start
+F.Intrinsic.Control.If(V.Screen.uplForm!chkExclOpt.Value,=,1)
+	Gui.uplForm.chkOptions.Enabled(False)
+	Gui.uplForm.chkSubOptions.Enabled(False)
+	Gui.uplForm.chkOptions.Value(0)
+	gui.uplForm.chkSubOptions.Value(0)
+F.Intrinsic.Control.Else
+	Gui.uplForm.chkOptions.Enabled(True)
+F.Intrinsic.Control.EndIf
+Program.Sub.chkExclOpt_Click.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$2/16/2017 2:43:32 PM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$pgrekstas$}$20231219130135579$}$6p6WpyolxJED9Z3JN1EOjQ5MHtlEb3AW4fXjopsZC+SEPAEuKBcHIsZtthOoQW7Wk0/I0Z0gYoaV1KhSG7/bgg==
+Program.Sub.Comments.End
